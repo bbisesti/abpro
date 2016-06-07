@@ -34,7 +34,7 @@ address {
 p.lead {
 	margin-bottom: 2em;
 }
-
+a:hover,
 .text-red {
 	color: #d00005;
 }
