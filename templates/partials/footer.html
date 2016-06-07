@@ -1,0 +1,37 @@
+<section id="contact" class="bg-dark" data-bg="{{ cms.homepage.map|imageCrop(1200,600) }}"  data-midnight="dark">
+	<div class="row expanded collapse">
+		<div class="column medium-6 large-8">
+			<div class="padding">
+				{# <img src="/static/images/made-in-boston.png" alt="" style="height: 5em;"> #}
+			</div>
+		</div>
+		<div class="column medium-6 large-4 padding">
+			<img src="/static/images/abpro-logo-white.svg" alt="" style="height: 4em; margin: 1em;">
+			<address>
+				<p>
+					65 Cummings Park Drive<br>
+					Woburn, MA 01801
+				</p>
+			</address>
+			<ul class="menu vertical">
+				{% for item in ['phone', 'email', 'twitter'] %}
+					<li>
+						<a href="#">
+							{{ item }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<footer class="bg-dark">
+	<div class="row column">
+		<ul class="menu">
+			<li {% if getCurrentUrl() == '/1/' or getCurrentUrl() == '/' %}class="active"{% endif %}><a href="/1">concept 1</a></li>
+			<li {% if getCurrentUrl() == '/2/' %}class="active"{% endif %}><a href="/2">concept 2</a></li>
+			<li {% if getCurrentUrl() == '/3/' %}class="active"{% endif %}><a href="/3">concept 3</a></li>
+		</ul>
+	</div>
+</footer>

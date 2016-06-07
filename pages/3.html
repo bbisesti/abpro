@@ -1,0 +1,192 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - Homepage{% endblock %}
+
+{% block head_extra %}
+    <style>
+          nav {
+      /*height: 100vh;*/
+    }
+    nav .menu {
+      /*position: fixed;*/
+      /*left: 0;*/
+      position: fixed;
+      left: 2em;
+      top: 50%;
+      transform: translateY(calc(-50%)) scale(1);
+      transition: all 0.5s;
+      z-index: 9999;
+    }
+    nav.collapsed .menu {
+      left: 0;
+      transform: translateY(calc(-50%)) scale(0.25);
+    }
+    nav .menu li {
+      padding: 0.5em 0;
+      display: block;
+      /*position: relative;*/
+    }
+    nav .menu li a {
+      display: block;
+      position: relative;
+    }
+    nav .menu li a:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      display: block;
+      background-color: transparent;
+      transition: all 0.5s;
+    }
+
+
+
+    nav.collapsed .menu li a:before {
+      background-color: #fff;
+      right: 0;
+    }
+
+    nav.light .menu li a:before {
+      background: black;
+      color: black;
+    }
+    nav.dark .menu li a:before {
+      background: white;
+      color: white;
+    }
+
+
+    nav .menu li a {
+      color: #fff;
+      padding: 0;
+    }
+    header .logo {
+      margin-left: 1em;
+    }
+
+
+
+header .row {
+      max-width: 100%;
+    }
+    header .menu {
+      position: fixed;
+      left: 1em;
+      top: 50%;
+      transform: translateY(calc(-50%));
+    }
+    header .menu li {
+      display: block;
+    }
+    header .menu li a {
+      color: #fff;
+      font-weight: bold;
+    }
+    .slide {
+      background-attachment: fixed;
+      background-position: center center;
+    }
+    .overlay {
+      background-color: rgba(0,0,0,0.5);
+      position: relative;
+      height: 100%;
+  }
+
+
+
+    </style>
+{% endblock head_extra %}
+
+{% block header %}
+<nav>
+    <ul class="menu float-right show-for-large">
+      {% for item in ['services', 'technology', 'sectors', 'news', 'about us', 'contact'] %}
+        <li><a href="#{{ item }}">{{ item }}</a></li>
+      {% endfor %}
+    </ul>
+</nav>
+
+  <header>
+    <div class="row column">
+      {# <h1 class="float-left"> #}
+        <img src="/static/images/abpro-logo-white.svg" class="logo float-left">
+      {# </h1> #}
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+  {# <section id="hero"> #}
+    {% for item in cms.homepage.grid %}
+      <div class="slide full cover bg-dark" data-bg="{{ item.image.url }}">
+        <div class="overlay">
+          <div class="row">
+            <div class="column medium-4">
+              &nbsp;
+            </div>
+            <div class="column medium-8">
+              <h2>{{ item.headline }}</h2>
+              {# <p class="lead">{{ item.description }}</p> #}
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p>
+              <a href="#" class="button large hollow">
+                Learn more about our services &rarr;
+              </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {# </section> #}
+
+{% endblock %}
+
+
+{% block scripts_extra %}
+  {# // <script src="//cdn.jsdelivr.net/jquery.midnight/1.1.1/midnight.jquery.min.js"></script> #}
+  <script src="//cdn.jsdelivr.net/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+  <script>
+      $(window).scroll(function(){
+        var scrollTop = $('body').scrollTop();
+        if (scrollTop == 0) {
+          $('nav').removeClass('collapsed');
+
+        } else {
+          $('nav').addClass('collapsed');
+        }
+      });
+
+      $('nav').hover(function(){
+          $(this).removeClass('collapsed');
+      }, function(){
+          if ( $('body').scrollTop() !== 0 ) {
+            $(this).addClass('collapsed');
+          }
+      });
+
+      // Start midnight
+      // $(document).ready(function(){
+        // Change this to the correct selector.
+        // $('nav .menu').midnight();
+      // });
+
+      $(document).ready(function(){
+        // var waypoints = $('section').waypoint({
+        //   handler: function(direction) {
+        //     console.info( $(this.element).data('midnight') + ' hit')
+        //   }
+        // });
+
+        var waypoints = $('section').waypoint(function(direction) {
+            var background = $(this.element).data('midnight');
+            $('nav').removeClass('dark light').addClass(background);
+            // console.info(  + ' hit')
+        }, {
+          offset: '50%'
+        })
+      })
+  </script>
+{% endblock %}
