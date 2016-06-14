@@ -1,0 +1,58 @@
+{# ------------------------------------------------------- #}
+{# ONE OFF VIEW technology #}
+{# This page can use any data from http:localhost:2000/cms/#/form/technology/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this technology's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ cms.technology.name }}{% endblock %}
+{% block content %}
+
+
+
+
+  <section id="hero" class="cover" data-bg="{{ cms.technology.image.url }}">
+    <div class="overlay">
+      <div class="inner">
+        <div class="row">
+          <div class="column large-9">
+            <h2>{{ cms.technology.headline }}</h2>
+            <p class="lead">{{ cms.technology.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="row expanded">
+      <div class="column text-center" style="padding: 4em 0;">
+        <img src="/static/images/technology-1.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+
+  {% for section in cms.technology.sections %}
+    <section class="padding {% if loop.index % 2 %}bg-gray{% endif %}">
+      <div class="row column text-center">
+        <h2 style="margin-bottom: 2em;">{{ section.name }}</h2>
+      </div>
+      <div class="row">
+        <div class="column medium-6"></div>
+        <div class="column medium-6">
+          {{ section.content|safe }}
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+
+  {% include 'templates/partials/cta.html' %}
+
+{% endblock %}

@@ -5,9 +5,15 @@
 			<img src="/static/images/abpro-logo-red.svg" class="logo float-left">
 		{# </h1> #}
 		<ul class="menu float-right show-for-large">
-			{% for item in ['services', 'technology', 'sectors', 'news', 'about us', 'contact'] %}
+			<li {% if getCurrentUrl() == url('services') %}class="active"{% endif %}><a href="{{ url('services') }}">Services</a></li>
+			<li {% if getCurrentUrl() == '/technology/' %}class="active"{% endif %}><a href="/technology/">Technology</a></li>
+			<li {% if getCurrentUrl() == url('sectors') %}class="active"{% endif %}><a href="{{ url('sectors') }}">Sectors</a></li>
+			<li {% if getCurrentUrl() == url('news') %}class="active"{% endif %}><a href="{{ url('news') }}">News</a></li>
+			<li {% if getCurrentUrl() == url('about') %}class="active"{% endif %}><a href="{{ url('about') }}">About Us</a></li>
+			<li {% if getCurrentUrl() == url('contact') %}class="active"{% endif %}><a href="{{ url('contact') }}">Contact</a></li>
+{# 			{% for item in ['services', 'technology', 'sectors', 'news', 'about us', 'contact'] %}
 				<li><a href="#">{{ item }}</a></li>
-			{% endfor %}
+			{% endfor %} #}
 		</ul>
 	</div>
 </header>

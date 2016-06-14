@@ -12,37 +12,35 @@
 {# This sets our page <title>. It will append this services's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-  <p><a href="{{ url('services') }}">View a list of all services</a></p>
-  <h1>{{ item.name }}</h1>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Description: </strong>
-        {{ item.description }}
-      </li>
-      <li>
-        <strong>Image: </strong>
-        {# You can pull out a lot more information from the image property. Info here: #}
-        {# http://www.webhook.com/docs/widget-template-reference/#image #}
-        <img src="{{ item.image|imageSize(200, 200) }}" />
-      </li>
-  </ul>
+
+
+  <section class="bg-dark cover padding" data-bg="{{ item.image.url }}" style="margin-top: 4em;">
+    <div class="row">
+      <div class="column large-8">
+        <h2>{{ item.name }}</h2>
+        <p class="lead" style="margin-bottom: 0;">{{ item.description }}</p>
+        {# <p class="lead">{{ featured.description }}</p> #}
+        {# <a href="{{ featured.website }}" class="button large hollow">Read more &rarr;</a> #}
+      </div>
+    </div>
+  </section>
+
+
+  <section class="padding">
+    <div class="row">
+      <div class="column large-4">
+        <ul class="menu vertical show-for-large">
+          {% for item in cms.services %}
+            <li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="column large-8">
+        {{ item.content|safe }}
+      </div>
+    </div>
+  </section>
+
+  {% include 'templates/partials/cta.html' %}
+
 {% endblock %}

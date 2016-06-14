@@ -19,26 +19,41 @@
 
 {% block content %}
 
-  {# The first thing we do is call services data from the CMS. #}
-  {% set data = cms.services %}
+  <section id="hero" data-bg="{{ cms.homepage.grid[1].image.url }}">
+    <div class="overlay">
+      <div class="inner">
+        <div class="row">
+          <div class="column">
+            <h2>{{ cms.homepage.grid[1].headline|safe }}</h2>
+            <p class="lead">{{ cms.homepage.grid[1].description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
-  {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
-  {% set data = data|sort('publish_date', true) %}
+  {% for group in cms.servicescategories %}
+    <section class="padding {% if loop.index0 % 2 %}bg-gray{% endif %}">
+      <div class="row column">
+        <h2>{{ group.name }}</h2>
+        {% if group.overview %}
+            <p class="lead">{{ group.overview }}</p>
+        {% endif %}
+      </div>
+      <div class="row medium-up-2 large-up-3">
+        {% for item in group.services_category %}
+          <div class="column">
+            <hr>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.content|safe|truncate(200) }}</p>
+            <a href="{{ url(item) }}" class="button link">Learn More &rarr;</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
 
-  {# This is how you set pagination. It's always important to do this after your sort. #}
-  {% set data = paginate(data, 5) %}
+  {% include 'templates/partials/cta.html' %}
 
-  <h1>List of services</h1>
-
-  {# This forloop can use any data from http:localhost:2000/cms/#/form/services/ #}
-  <ul>
-    {% for object in data %}
-      <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
-    {% endfor %}
-  </ul>
-
-  {# The actual pagination template, feel free to edit or replace the default one. #}
-  {% include "templates/partials/paginator.html" %}
 
 {% endblock %}

@@ -34,13 +34,25 @@
       margin-top: 0;
     }
 
+
+    .slick-slide h2 {
+      transition: all 1s;
+      transform: translateX(25vw);
+      opacity: 0;
+    }
+    .slick-slide.slick-current h2 {
+      transform: translateX(0);
+      opacity: 1;
+    }
     .slick-slide p {
       /*margin-bottom: 2em;*/
       transition: all 1s;
-      transform: translateY(100%);
+      transform: translateX(50vw);
+      opacity: 0;
     }
     .slick-slide.slick-current p {
-      transform: translateY(0);
+      transform: translateX(0);
+      opacity: 1;
       /*margin-bottom: 0.5em;*/
     }
     .slick-slide .button {
@@ -48,10 +60,12 @@
       /*margin-top: 4em;*/
       margin-top: 0;
       transition: all 1s;
-      transform: translateY(200%);
+      transform: translateX(100vw);
+      opacity: 0;
     }
     .slick-slide.slick-current .button {
-      transform: translateY(0);
+      transform: translateX(0);
+      opacity: 1;
       /*margin-top: 0;*/
     }
 
@@ -80,6 +94,13 @@
     #contact {
     }
 
+    .overlay {
+      background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
+      background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
+      background: linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 );
+    }
+
 </style>
 
   <section id="hero" class="bg-dark">
@@ -90,10 +111,10 @@
             <div class="row" data-equalizer>
               <div class="column medium-8">
                 {# <div class="padding" style="padding: 4em;"> #}
-                  <h2 style="margin-top: 0;">{{ item.headline }}</h2>
+                  <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
                   <p class="lead">{{ item.description }}</p>
                   {# <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p> #}
-                  <a href="#" class="button hollow large" style="margin-bottom: 0;">
+                  <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0;">
                     Learn about our technology &rarr;
                   </a>
                 {# </div> #}
@@ -105,9 +126,7 @@
     </div>
   </section>
 
-
-
-  <section id="news" class="padding">
+  <section id="news" class="padding" style="margin-top: 8em;">
     <div class="row large-up-3" data-equalizer data-equalize-on="large">
       {% for item in cms.news|slice(0,3) %}
         <div class="column">
@@ -116,7 +135,7 @@
             <h3 class="text-red">{{ item.name }}</h3>
             <p>{{ item.description }}</p>
           </div>
-          <a href="#" class="button link">
+          <a href="{{ item.website }}" rel="external" class="button link">
             Read more &rarr;
           </a>
         </div>
@@ -124,16 +143,15 @@
     </div>
   </section>
 
-
   <section id="about" class="padding bg-gray">
     <div class="row">
       <div class="column large-6">
       </div>
       <div class="column large-6">
-        <h3>About Us</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero adipisci voluptatem sequi ipsa, dolor debitis mollitia officiis et tenetur quos nam impedit quaerat est praesentium, quis eius, inventore aperiam obcaecati. Obcaecati perferendis explicabo expedita repellat corrupti ad, in, deleniti reiciendis dolor ipsam placeat quaerat tempore, tempora, architecto amet nihil quasi eligendi voluptatum sunt temporibus est voluptas velit numquam?</p>
+        <h2>About Us</h2>
+        <p>Abpro is a Massachusetts based biotechnology company. We are pioneers of industrial biochemistry and our mission is to bring innovation to the life sciences industry and ultimately improve living health. Through technology and automation, our DiversImmune™ discovery platform has streamlined all aspects of the process to deliver antibodies at industry leading speeds against previously difficult targets. Our products and discovery services are used by leading academic labs and companies around the world for research purposes, such as diagnostics and therapeutics.</p>
         <p>
-          <a href="#" class="button hollow">
+          <a href="{{ url('about') }}" class="button large hollow">
             Learn more about abpro &rarr;
           </a>
         </p>

@@ -19,26 +19,43 @@
 
 {% block content %}
 
-  {# The first thing we do is call sectors data from the CMS. #}
-  {% set data = cms.sectors %}
 
-  {# Next we sort the data by publish_date. The true bit reverses it so it's newest first. Learn more: #}
-  {# http://www.webhook.com/docs/template-rules-and-filters/#sortproperty_reverseorder #}
-  {% set data = data|sort('publish_date', true) %}
+{#   {% for sector in cms.sectors %}
+    <section class="padding full bg-dark cover fixed" data-bg="/static/images/sectors-{{ loop.index }}.jpg">
+      <div class="row">
+        <div class="column large-8">
+          <h2>{{ sector.name }}</h2>
+          <p class="lead">
+            {{ sector.description }}
+          </p>
+          <a href="{{ url(sector) }}" class="button hollow">Learn more about {{ sector.name }} &rarr;</a>
+        </div>
+      </div>
+    </section>
+  {% endfor %} #}
+  <div style="padding: 5em;">&nbsp;</div>
 
-  {# This is how you set pagination. It's always important to do this after your sort. #}
-  {% set data = paginate(data, 5) %}
+  {% for sector in cms.sectors %}
+    <section class="padding {% if loop.index0 % 2 %}bg-gray{% endif %}">
 
-  <h1>List of sectors</h1>
-
-  {# This forloop can use any data from http:localhost:2000/cms/#/form/sectors/ #}
-  <ul>
-    {% for object in data %}
-      <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
-    {% endfor %}
-  </ul>
-
-  {# The actual pagination template, feel free to edit or replace the default one. #}
-  {% include "templates/partials/paginator.html" %}
+      <div class="row" data-equalizer>
+        <div class="column medium-6" data-equalizer-watch>
+          <div class="table">
+            <div class="cell">
+              <img src="{{ sector.image|imageCrop(400) }}" alt="" class="circle" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+        <div class="column medium-5 medium-offset-1" data-equalizer-watch>
+          <div class="table">
+            <div class="cell">
+              <h2>{{ sector.name }}</h2>
+              {{ sector.content|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
 
 {% endblock %}

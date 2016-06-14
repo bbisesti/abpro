@@ -1,0 +1,95 @@
+{# ------------------------------------------------------- #}
+{# ONE OFF VIEW about #}
+{# This page can use any data from http:localhost:2000/cms/#/form/about/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this about's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ cms.about.name }}{% endblock %}
+{% block content %}
+
+
+  <section class="padding" style="margin-top: 4em;">
+    <div class="row column text-center">
+      <h2>Our Story</h2>
+      <p class="lead">
+        {{ cms.about.story|safe|striptags }}
+      </p>
+    </div>
+  </section>
+
+
+  <section class="padding bg-gray">
+
+    <div class="row column text-center">
+      <h2 style="margin-bottom: 1em;">Our People</h2>
+    </div>
+
+    <div class="row medium-up-4">
+
+      {% set management = cms.leadershipcategories[0] %}
+
+      {% for person in management.leadership_category %}
+          <div class="column text-center">
+            <hr>
+            {# <img src="{{ person.image|imageCrop(100) }}" class="circle" alt="{{ person.name }}"> #}
+            <h4>{{ person.name }}</h4>
+            <h6>{{ person.title }}</h6>
+            <p style="line-height: 1.25;"><small>{{ person.credentials }}</small></p>
+          </div>
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+
+  <section class="padding">
+
+    <div class="row column text-center">
+      <h2 style="margin-bottom: 1em;">Scientific Advisory Board</h2>
+    </div>
+
+    <div class="row medium-up-3 large-up-4">
+
+      {% set management = cms.leadershipcategories[1] %}
+
+      {% for person in management.leadership_category %}
+          <div class="column text-center">
+            <hr>
+            {# <img src="{{ person.image|imageCrop(100) }}" class="circle" alt="{{ person.name }}"> #}
+            <h4>{{ person.name }}</h4>
+            <h6>{{ person.title }}</h6>
+            <p style="line-height: 1.25;"><small>{{ person.credentials }}</small></p>
+          </div>
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+
+  <section class="padding bg-gray">
+
+    <div class="row column text-center">
+      <h2 style="margin-bottom: 1em;">Careers</h2>
+    </div>
+
+  </section>
+
+
+  <section class="padding">
+
+    <div class="row column text-center">
+      <h2 style="margin-bottom: 1em;">Media</h2>
+    </div>
+
+  </section>
+
+
+{% endblock %}

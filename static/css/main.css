@@ -35,6 +35,7 @@ p.lead {
 	margin-bottom: 2em;
 }
 a:hover,
+a:hover i,
 .text-red {
 	color: #d00005;
 }
@@ -149,6 +150,9 @@ footer .menu li.active a {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+.fixed {
+	background-attachment: fixed;
+}
 
 .slide {
 	// position: relative;
@@ -187,7 +191,70 @@ footer .menu li.active a {
 
 
 
+hr {
+	border-bottom: 2px solid #ddd;
+}
+
+.circle {
+	border-radius: 1000px;
+}
 
 .text-red {
 
+}
+
+.table {
+	display: table;
+	height: 100%; width: 100%;
+}
+.cell {
+	height: 100%; width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+
+#hero {
+	height: 60vh;
+	margin-top: 5em;
+}
+#hero .overlay {
+	height: 100%;
+	position: relative;
+}
+#hero .overlay .inner {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+}
+#hero h2 {
+	color: #fff;
+	margin-bottom: 0.25em;
+}
+#hero p {
+	color: #fff;
+}
+
+
+.midnightHeader.default {
+  color: black;
+  background: #fff;
+}
+.midnightHeader.dark {
+  color: black;
+  background: transparent;
+}
+.midnightHeader.light {
+  color: white;
+  background: transparent;
+}
+
+
+
+header ul.menu li.active a {
+	background-color: transparent;
+	color: #d00005;
 }

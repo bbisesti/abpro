@@ -1,5 +1,6 @@
 var Site = {
 	init: function() {
+		Site.header();
 		Site.slider();
 		Site.smoothScroll();
 	},
@@ -26,8 +27,11 @@ var Site = {
 		    }
 	  });
 	},
-	menu: function() {
-
+	header: function() {
+      $(document).ready(function(){
+        // Change this to the correct selector.
+        $('header').midnight();
+      });
 	}
 }
 
