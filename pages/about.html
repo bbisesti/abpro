@@ -14,7 +14,7 @@
 {% block content %}
 
 
-  <section class="padding" style="margin-top: 4em;">
+  <section class="padding cover fixed" style="margin-top: 4em; background-position: center 40vh; background-repeat: no-repeat;" data-bg="/static/images/hexagons-gray.svg">
     <div class="row column text-center">
       <h2>Our Story</h2>
       <p class="lead">
@@ -30,7 +30,7 @@
       <h2 style="margin-bottom: 1em;">Our People</h2>
     </div>
 
-    <div class="row medium-up-4">
+    <div class="row medium-up-3 large-up-3">
 
       {% set management = cms.leadershipcategories[0] %}
 
@@ -55,7 +55,7 @@
       <h2 style="margin-bottom: 1em;">Scientific Advisory Board</h2>
     </div>
 
-    <div class="row medium-up-3 large-up-4">
+    <div class="row medium-up-3 large-up-3">
 
       {% set management = cms.leadershipcategories[1] %}
 
@@ -80,6 +80,17 @@
       <h2 style="margin-bottom: 1em;">Careers</h2>
     </div>
 
+    <div class="row large-up-3">
+      {% for item in cms.careers %}
+        <div class="column">
+          <hr>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description|striptags|truncate(100) }}</p>
+          <a href="{{ url(item) }}" class="button link">Learn more &rarr;</a>
+        </div>
+      {% endfor %}
+    </div>
+
   </section>
 
 
@@ -87,6 +98,21 @@
 
     <div class="row column text-center">
       <h2 style="margin-bottom: 1em;">Media</h2>
+    </div>
+
+    <div class="row medium-up-2 large-up-3">
+      {% for item in cms.news|slice(0,3) %}
+        <div class="column">
+          <h6>{{ item.publish_date|date('M j Y') }}</h6>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+          <a href="{{ item.website }}" rel="external" class="button link">Read More &rarr;</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="row column text-center">
+      <a href="{{ url('news') }}" class="button hollow large">View all news &rarr;</a>
     </div>
 
   </section>

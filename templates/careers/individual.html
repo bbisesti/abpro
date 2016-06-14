@@ -1,0 +1,41 @@
+{# ------------------------------------------------------- #}
+{# INDIVIDUAL VIEW FOR EACH careers #}
+{# This page can use any data from http:localhost:2000/cms/#/form/careers/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this careers's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block content %}
+
+  <section class="padding">
+    <div class="row">
+      <div class="column large-4"></div>
+      <div class="column large-8">
+        <h2>{{ item.name }}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column large-4">
+        {# <a href="{{ url('careers') }}" class="button link">&larr; All carrers</a> #}
+        <ul class="menu vertical" style="margin-top: 2em;">
+          {% for item in cms.careers %}
+            <li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="column large-8">
+        {{ item.description|safe }}
+
+        <a href="mailto:hr@abpro-labs.com" class="button large">Apply Now &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

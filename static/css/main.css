@@ -47,20 +47,23 @@ a:hover i,
 	font-weight: bold;
 	// font-size: 1.125em;
 	// padding-left: 0;
-	color: black;
+	color: white;
 	margin-top: 1em;
+	background: #d00005;
 
 }
 
 .button.hollow {
+	background: transparent;
 	border-color: black;
 	color: black;
 }
 
 .button.link {
+	color: black;
 	padding-left: 0;
 	padding-right: 0;
-	background-color: transparent;
+	background: transparent;
 }
 .button.link:hover {
 	color: #d00005;
@@ -161,7 +164,7 @@ footer .menu li.active a {
 
 
 .overlay {
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.6);
 	// position: absolute;
 
 	// width: 100%;
@@ -213,6 +216,24 @@ hr {
 	vertical-align: middle;
 }
 
+
+
+.text-columns-2 {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+
+	-webkit-column-gap: 4em; /* Chrome, Safari, Opera */
+    -moz-column-gap: 4em; /* Firefox */
+    column-gap: 4em;
+}
+.text-columns-2 ul {
+	    // margin: 0;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+    display:table;
+}
 
 
 
