@@ -1,0 +1,72 @@
+<form action="" novalidate data-abide>
+
+	<fieldset>
+		<legend>Type of Service:</legend>
+		<input type="checkbox" id="service_full_kinetic_analysis" name="service_full_kinetic_analysis"></input><label for="service_peptide">Full Kinetic Analysis</label>
+		<input type="checkbox" id="service_affinity_scouting_clone_selection" name="service_affinity_scouting_clone_selection"></input><label for="service_affinity_scouting_clone_selection">Affinity Scouting/Clone Selection</label>
+		<input type="checkbox" id="service_epitope_binning" name="service_epitope_binning"></input><label for="service_cells">Epitope Binning</label>
+	</fieldset>
+
+
+	<fieldset>
+		<label for="molecular_weight">
+			Molcular weight of the molecules to be analyzed:
+			<input type="text" name="molecular_weight" id="molecular_weight">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<label for="tag_type">
+			Type(s) of tags if the molecules are tagged:
+			<input type="number" name="tag_type" id="tag_type">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Any additional information, comments, or questions:
+		</legend>
+		<textarea name="message" id="" cols="30" rows="10"></textarea>
+	</fieldset>
+
+	<!-- demographics -->
+
+	<fieldset>
+		<label for="name">
+			Name<sup class="text-red">*</sup>
+			<input type="text" name="name" id="name" required>
+            <span class="form-error">Please enter your name</span>
+		</label>
+
+		<label for="company">
+			Company/Institution<sup class="text-red">*</sup>
+			<input type="text" name="company" id="company" required>
+            <span class="form-error">Please enter the name of your company or organization</span>
+		</label>
+
+		<label for="email">
+			Email<sup class="text-red">*</sup>
+			<input type="email" name="email" id="email" required>
+            <span class="form-error">Please enter a valid email address</span>
+		</label>
+
+		<label for="phone">
+			Phone Number
+			<input type="text" name="phone" id="phone">
+		</label>
+
+		<label for="referral">
+			How did you hear about us?
+			<select name="referral" id="referral">
+				<option value="" disabled selected>Choose one</option>
+				<option value="email">Email Campaign</option>
+				<option value="google">Google Ad</option>
+				<option value="search">Internet search</option>
+				<option value="colleague">Colleague</option>
+				<option value="other">Other</option>
+			</select>
+		</label>
+
+		<button type="submit" class="button">Submit request &rarr;</button>
+	</fieldset>
+</form>

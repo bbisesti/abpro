@@ -1,34 +1,47 @@
-<section id="contact" class="bg-dark" data-bg="{{ cms.homepage.map|imageCrop(1200,600) }}"  data-midnight="dark">
-	<div class="row expanded collapse">
-		<div class="column medium-6 large-8">
-			<div class="padding">
-				{# <img src="/static/images/made-in-boston.png" alt="" style="height: 5em;"> #}
+<section id="contact" class="bg-dark padding" style="padding-top: 0; padding-bottom: 0;" data-bg="{{ cms.homepage.map|imageCrop(1200,600) }}"  data-midnight="dark">
+	<div class="row expanded collapse" data-equalizer data-equalize-on="large">
+		<div class="column medium-6 large-8" data-equalizer-watch>
+			<div class="table">
+				<div class="cell text-">
+					<div class="padding">
+						<img src="/static/images/made-in-boston.png" alt="" style="height: 5em;" class="boston">
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="column medium-6 large-4 padding">
-			<img src="/static/images/abpro-logo-white.svg" alt="" style="height: 4em; margin: 1em;">
-			<address>
-				<p>
-					65 Cummings Park Drive<br>
-					Woburn, MA 01801
-				</p>
-			</address>
+		<div class="column medium-6 large-4 padding" data-equalizer-watch>
+			<img src="/static/images/abpro-logo-white.svg" alt="" style="height: 4em; margin: 1em 0;">
+
 			<ul class="menu vertical">
-					<li>
-						<a href="#">
-							<i class="icon-phone"></i> +1 800 396 5890
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="icon-mail"></i> info@abpro-labs.com
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="icon-twitter"></i> @abprolabs
-						</a>
-					</li>
+				<li>
+					<a href="#" style="line-height: 1.5">
+						<i class="icon-location-pin"></i> 65 Cummings Park Drive<br>
+						<i class="icon-location-pin" style="opacity: 0;"></i> Woburn, MA 01801
+					</a>
+				</li>
+				<li>
+					<a href="tel:+18003965890">
+						<i class="icon-phone"></i> +1 800 396 5890
+					</a>
+				</li>
+				<li>
+					<a href="mailto:info@abpro-labs.com">
+						<i class="icon-mail"></i> info@abpro-labs.com
+					</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/abprolabs">
+						<i class="icon-twitter"></i> @abprolabs
+					</a>
+				</li>
+			</ul>
+
+			<ul class="menu small">
+				{% for item in cms.legal %}
+					<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+				{% endfor %}
+				{% set now = Date() %}
+				<li>&copy; {{ now|date('Y') }} Abpro Labs  </li>
 			</ul>
 		</div>
 	</div>

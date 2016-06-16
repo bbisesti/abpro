@@ -1,44 +1,14 @@
-{# ------------------------------------------------------- #}
-
-{# LIST VIEW OF ALL sectors #}
-
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-
-{# ------------------------------------------------------- #}
-
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
 
-{# This sets our page <title>. It will append sectors to the site title defined in base.html #}
 {% block title %}{% parent %} - sectors{% endblock %}
 
 {% block content %}
 
-
-{#   {% for sector in cms.sectors %}
-    <section class="padding full bg-dark cover fixed" data-bg="/static/images/sectors-{{ loop.index }}.jpg">
-      <div class="row">
-        <div class="column large-8">
-          <h2>{{ sector.name }}</h2>
-          <p class="lead">
-            {{ sector.description }}
-          </p>
-          <a href="{{ url(sector) }}" class="button hollow">Learn more about {{ sector.name }} &rarr;</a>
-        </div>
-      </div>
-    </section>
-  {% endfor %} #}
-  <div style="padding: 5em;">&nbsp;</div>
+  <div style="padding: 2em;">&nbsp;</div>
 
   {% for sector in cms.sectors %}
-    <section class="padding {% if loop.index0 % 2 %}bg-gray{% endif %}">
-
-      <div class="row" data-equalizer>
+    <section class="padding {% if loop.index % 2 %}bg-gray{% endif %}">
+      <div class="row" data-equalizer data-equalize-on="large">
         <div class="column medium-6" data-equalizer-watch>
           <div class="table">
             <div class="cell">
@@ -57,5 +27,7 @@
       </div>
     </section>
   {% endfor %}
+
+  {% include 'templates/partials/partners.html' %}
 
 {% endblock %}

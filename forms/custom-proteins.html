@@ -1,0 +1,78 @@
+<form action="" novalidate data-abide>
+	<fieldset>
+		<label for="accession">
+			Accession number of required protein
+			<input type="text" name="accession" id="accession">
+		</label>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>Expression system:</legend>
+		<input type="checkbox" id="expression-mammilian" name="expression-mammilian"></input><label for="expression-mammilian">Mammilian</label>
+		<input type="checkbox" id="expression-insect" name="expression-insect"></input><label for="expression-insect">Insect</label>
+		<input type="checkbox" id="expression-ecoli" name="expression-ecoli"></input><label for="expression-ecoli">E. Coli</label>
+	</fieldset>
+
+	<fieldset>
+		<label for="quantity">
+			Target quantity of protein
+			<input type="text" name="quantity" id="quantity">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Does your antigen have high homology to mouse protein?</legend>
+		<input type="radio" name="his" id="his_yes"></input><label for="his_yes">Yes</label>
+		<input type="radio" name="his" id="his_no"></input><label for="his_no">No</label>
+		<input type="radio" name="his" id="his_maybe"></input><label for="his_maybe">Maybe</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Please describe what application this protein will be used for:
+		</legend>
+		<textarea name="message" id="" cols="30" rows="10"></textarea>
+	</fieldset>
+
+	<!-- demographics -->
+
+	<fieldset>
+		<label for="name">
+			Name<sup class="text-red">*</sup>
+			<input type="text" name="name" id="name" required>
+            <span class="form-error">Please enter your name</span>
+		</label>
+
+		<label for="company">
+			Company/Institution<sup class="text-red">*</sup>
+			<input type="text" name="company" id="company" required>
+            <span class="form-error">Please enter the name of your company or organization</span>
+		</label>
+
+		<label for="email">
+			Email<sup class="text-red">*</sup>
+			<input type="email" name="email" id="email" required>
+            <span class="form-error">Please enter a valid email address</span>
+		</label>
+
+		<label for="phone">
+			Phone Number
+			<input type="text" name="phone" id="phone">
+		</label>
+
+		<label for="referral">
+			How did you hear about us?
+			<select name="referral" id="referral">
+				<option value="" disabled selected>Choose one</option>
+				<option value="email">Email Campaign</option>
+				<option value="google">Google Ad</option>
+				<option value="search">Internet search</option>
+				<option value="colleague">Colleague</option>
+				<option value="other">Other</option>
+			</select>
+		</label>
+
+		<button type="submit" class="button">Submit request &rarr;</button>
+	</fieldset>
+</form>

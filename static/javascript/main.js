@@ -3,6 +3,12 @@ var Site = {
 		Site.header();
 		Site.slider();
 		Site.smoothScroll();
+		Site.menu();
+	},
+	menu: function() {
+		$(document).on('click', '.menu-toggle, .mobile-menu a', function(){
+			$('body').toggleClass('menu-open');
+		});
 	},
 	slider: function() {
 		$('.carousel').slick({

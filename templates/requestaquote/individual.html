@@ -3,28 +3,26 @@
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 
 {% block content %}
-
   <section class="padding">
     <div class="row">
       <div class="column large-4"></div>
       <div class="column large-8">
-        <h2>{{ item.name }}</h2>
+         <h2 style="margin-bottom: 1em;">{{ item.name }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="column large-4">
-        {# <a href="{{ url('careers') }}" class="button link">&larr; All carrers</a> #}
-        <ul class="menu vertical" style="margin-top: 2em;">
-          {% for item in cms.careers %}
-            <li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+        <ul class="menu vertical show-for-large">
+          <h3>Request a Quote</h3>
+          <hr>
+          {% for link in cms.requestaquote %}
+            <li><a href="{{ url(link) }}">{{ link.name }}</a></li>
           {% endfor %}
         </ul>
       </div>
       <div class="column large-8">
-        {{ item.description|safe }}
-        <a href="mailto:hr@abpro-labs.com" class="button large">Apply Now &rarr;</a>
+        {{ item.form|safe }}
       </div>
     </div>
   </section>
-
 {% endblock %}

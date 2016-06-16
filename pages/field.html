@@ -1,0 +1,51 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - {{ cms.field.name }}{% endblock %}
+{% block content %}
+
+  <section id="hero" class="cover fixed bg-dark" data-bg="">
+    <div class="overlay">
+      <div class="inner">
+        <div class="row">
+          <div class="column large-9">
+            <h2>{{ cms.field.name }}</h2>
+            <p class="lead">{{ cms.field.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="padding">
+    <div class="row column text-center large-8 large-centered">
+      {{ cms.field.content|replace('<p>', '<p class="lead" style="margin-bottom: 0;">')|safe }}
+    </div>
+  </section>
+
+  {% for item in cms.field.grid %}
+    <section class="padding {% if loop.index % 2 %}bg-gray{% endif %}">
+      <div class="row" data-equalizer>
+        <div class="column medium-6">
+          <div class="table">
+            <div class="cell" data-equalizer-watch>
+              <img src="{{ item.image|imageCrop(400) }}" alt="" class="circle" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+        <div class="column medium-5 medium-offset-1">
+          <div class="table">
+            <div class="cell" data-equalizer-watch>
+              <h2>{{ item.name }}</h2>
+              <p class="lead">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+
+  {% include 'templates/partials/cta.html' %}
+
+{% endblock %}

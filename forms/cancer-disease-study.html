@@ -1,0 +1,83 @@
+<form action="" novalidate data-abide>
+	<fieldset>
+		<label for="strain">
+			Strain you will be using:
+			<input type="text" name="strain" id="strain">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<label for="animals">
+			Number of animals required:
+			<input type="number" name="animals" id="animals">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<label for="duration">
+			Estimated duration of the study:
+			<input type="text" name="duration" id="duration">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<label for="cell_line_type">
+			Type of cell line:
+			<input type="text" name="cell_line_type" id="cell_line_type">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Will you be providing the cell line?</legend>
+		<input type="radio" name="cell_line" id="cell_line_yes"></input><label for="cell_line_yes">Yes</label>
+		<input type="radio" name="cell_line" id="cell_line_no"></input><label for="bioanalysis_no">No</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Please briefly describe the overall goal of the project you would like Abpro to initiate or develop:
+		</legend>
+		<textarea name="message" id="" cols="30" rows="10"></textarea>
+	</fieldset>
+
+	<!-- demographics -->
+
+	<fieldset>
+		<label for="name">
+			Name<sup class="text-red">*</sup>
+			<input type="text" name="name" id="name" required>
+            <span class="form-error">Please enter your name</span>
+		</label>
+
+		<label for="company">
+			Company/Institution<sup class="text-red">*</sup>
+			<input type="text" name="company" id="company" required>
+            <span class="form-error">Please enter the name of your company or organization</span>
+		</label>
+
+		<label for="email">
+			Email<sup class="text-red">*</sup>
+			<input type="email" name="email" id="email" required>
+            <span class="form-error">Please enter a valid email address</span>
+		</label>
+
+		<label for="phone">
+			Phone Number
+			<input type="text" name="phone" id="phone">
+		</label>
+
+		<label for="referral">
+			How did you hear about us?
+			<select name="referral" id="referral">
+				<option value="" disabled selected>Choose one</option>
+				<option value="email">Email Campaign</option>
+				<option value="google">Google Ad</option>
+				<option value="search">Internet search</option>
+				<option value="colleague">Colleague</option>
+				<option value="other">Other</option>
+			</select>
+		</label>
+
+		<button type="submit" class="button">Submit request &rarr;</button>
+	</fieldset>
+</form>

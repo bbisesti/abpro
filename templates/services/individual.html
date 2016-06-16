@@ -1,30 +1,17 @@
-{# ------------------------------------------------------- #}
-{# INDIVIDUAL VIEW FOR EACH services #}
-{# This page can use any data from http:localhost:2000/cms/#/form/services/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
-{# This sets our page <title>. It will append this services's name to the site title defined in base.html #}
-{% block title %}{% parent %} - {{ item.name }}{% endblock %}
-{% block content %}
 
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+
+{% block content %}
 
   <section class="bg-dark cover padding" data-bg="{{ item.image.url }}" style="margin-top: 4em;">
     <div class="row">
-      <div class="column large-8">
+      <div class="column large-7">
         <h2>{{ item.name }}</h2>
         <p class="lead" style="margin-bottom: 0;">{{ item.description }}</p>
-        {# <p class="lead">{{ featured.description }}</p> #}
-        {# <a href="{{ featured.website }}" class="button large hollow">Read more &rarr;</a> #}
       </div>
     </div>
   </section>
-
 
   <section class="padding">
     <div class="row">

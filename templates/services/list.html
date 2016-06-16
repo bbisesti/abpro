@@ -1,29 +1,14 @@
-{# ------------------------------------------------------- #}
-
-{# LIST VIEW OF ALL services #}
-
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-
-{# ------------------------------------------------------- #}
-
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
 
-{# This sets our page <title>. It will append services to the site title defined in base.html #}
 {% block title %}{% parent %} - services{% endblock %}
 
 {% block content %}
 
-  <section id="hero" data-bg="{{ cms.homepage.grid[1].image.url }}">
+  <section id="hero" class="cover fixed" data-bg="{{ cms.homepage.grid[1].image.url }}">
     <div class="overlay">
-      <div class="inner">
+      <div class="inner padding">
         <div class="row">
-          <div class="column">
+          <div class="column large-7">
             <h2>{{ cms.homepage.grid[1].headline|safe }}</h2>
             <p class="lead">{{ cms.homepage.grid[1].description }}</p>
           </div>
@@ -54,6 +39,5 @@
   {% endfor %}
 
   {% include 'templates/partials/cta.html' %}
-
 
 {% endblock %}

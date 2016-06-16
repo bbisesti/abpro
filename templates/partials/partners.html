@@ -1,0 +1,16 @@
+<section class="padding" id="partners">
+  <div class="row column text-center">
+    <h2 style="margin-bottom: 1em;">Our Partners</h2>
+  </div>
+  <div class="row medium-up-3" data-equalizer data-equalize-on="large">
+    {% for item in cms.about.logos %}
+      <div class="column text-center">
+        <div class="table" data-equalizer-watch>
+          <div class="cell">
+            <img src="{{ item|imageSize(200) }}" alt="">
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

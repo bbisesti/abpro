@@ -1,0 +1,75 @@
+<form action="" novalidate data-abide>
+	<fieldset>
+		<legend>Antigen type:</legend>
+		<input type="checkbox" id="antigen-peptide" name="antigen-peptide"></input><label for="antigen-peptide">Peptide</label>
+		<input type="checkbox" id="antigen-protein" name="antigen-protein"></input><label for="antigen-protein">Protein</label>
+		<input type="checkbox" id="antigen-cells" name="antigen-cells"></input><label for="antigen-cells">Cells</label>
+		<input type="checkbox" id="antigen-gpcr" name="antigen-gpcr"></input><label for="antigen-gpcr">GPCR</label>
+		<input type="checkbox" id="antigen-phospho-target" name="antigen-phospho-target"></input><label for="antigen-phospho-target">Phospho-target</label>
+		<input type="checkbox" id="antigen-anti-idiotype" name="antigen-anti-idiotype"></input><label for="antigen-anti-idiotype">Anti-idiotype</label>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>Origin of molecule</legend>
+		<input type="checkbox" name="human" id="molecule_human"></input><label for="molecule_human">Human</label>
+		<input type="checkbox" name="mouse" id="molecule_mouse"></input><label for="molecule_mouse">Mouse</label>
+		<input type="checkbox" name="rat" id="molecule_rat"></input><label for="molecule_rat">Rat</label>
+		<input type="checkbox" name="viral" id="molecule_viral"></input><label for="molecule_viral">Viral</label>
+		<input type="checkbox" name="bacterial" id="molecule_bacterial"></input><label for="molecule_bacterial">Bacterial</label>
+		<input type="checkbox" name="plant" id="molecule_plant"></input><label for="molecule_plant">Plant</label>
+		<input type="checkbox" name="other" id="molecule_other"></input><label for="molecule_other">Other</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Does your antigen have high homology to mouse protein?</legend>
+		<input type="radio" name="homology" id="homology_yes"></input><label for="homology_yes">Yes</label>
+		<input type="radio" name="homology" id="homology_no"></input><label for="homology_no">No</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Please briefly describe the overall goal of your antibody you would like Abpro to develop. Please include how you plan to use this antibody as well as any conditions you would like the antibody to satisfy:
+		</legend>
+		<textarea name="message" id="" cols="30" rows="10"></textarea>
+	</fieldset>
+
+	<fieldset>
+		<label for="name">
+			Name<sup class="text-red">*</sup>
+			<input type="text" name="name" id="name" required>
+            <span class="form-error">Please enter your name</span>
+		</label>
+
+		<label for="company">
+			Company/Institution<sup class="text-red">*</sup>
+			<input type="text" name="company" id="company" required>
+            <span class="form-error">Please enter the name of your company or organization</span>
+		</label>
+
+		<label for="email">
+			Email<sup class="text-red">*</sup>
+			<input type="email" name="email" id="email" required>
+            <span class="form-error">Please enter a valid email address</span>
+		</label>
+
+		<label for="phone">
+			Phone Number
+			<input type="text" name="phone" id="phone">
+		</label>
+
+		<label for="referral">
+			How did you hear about us?
+			<select name="referral" id="referral">
+				<option value="" disabled selected>Choose one</option>
+				<option value="email">Email Campaign</option>
+				<option value="google">Google Ad</option>
+				<option value="search">Internet search</option>
+				<option value="colleague">Colleague</option>
+				<option value="other">Other</option>
+			</select>
+		</label>
+
+		<button type="submit" class="button">Submit request &rarr;</button>
+	</fieldset>
+</form>

@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?jzxrpy');
-    src:    url('fonts/icomoon.eot?jzxrpy#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?jzxrpy') format('truetype'),
-        url('fonts/icomoon.woff?jzxrpy') format('woff'),
-        url('fonts/icomoon.svg?jzxrpy#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?32wmtl');
+    src:    url('fonts/icomoon.eot?32wmtl#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?32wmtl') format('truetype'),
+        url('fonts/icomoon.woff?32wmtl') format('woff'),
+        url('fonts/icomoon.svg?32wmtl#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+    content: "\e908";
+}
+.icon-menu:before {
+    content: "\e904";
+}
+.icon-location-pin:before {
+    content: "\e909";
+}
 .icon-twitter:before {
     content: "\e900";
 }
@@ -32,5 +41,17 @@
 }
 .icon-phone:before {
     content: "\e902";
+}
+.icon-radio-unchecked:before {
+    content: "\e907";
+}
+.icon-radio-checked:before {
+    content: "\e903";
+}
+.icon-checkbox-unchecked:before {
+    content: "\e905";
+}
+.icon-checkbox-checked:before {
+    content: "\e906";
 }
 
