@@ -1,0 +1,67 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
+
+{% block content %}
+
+  <section class="padding bg-gray" style="margin-top: 4em;">
+    <div class="row">
+      <div class="column large-8 large-centered text-center">
+        <h2>Contact Us</h2>
+        <p class="lead">Use the form below or email us at <a href="mailto:info@abpro-labs.com">info@abpro-labs.com</a>. You can also <a href="{{ url('requestaquote') }}">request a quote</a> for one of our services.</p>
+      </div>
+    </div>
+
+    <form action="" novalidate data-abide>
+      <div class="row">
+        <div class="column medium-6">
+          <label for="">
+            Name<span class="text-red">*</span>
+            <input type="text" required>
+            <span class="form-error">Please tell us your name</span>
+          </label>
+          <label for="">
+            Company/Organization<span class="text-red">*</span>
+            <input type="text" required>
+            <span class="form-error">Please enter your company or organization</span>
+          </label>
+          <label for="">
+            Email<span class="text-red">*</span>
+            <input type="email">
+            <span class="form-error">Please enter a valid email address</span>
+          </label>
+          <label for="phone">
+            Phone
+            <input type="text">
+          </label>
+        </div>
+        <div class="column medium-6">
+          <label for="">Your Message</label>
+          <textarea name="message" id="" cols="30" rows="11"></textarea>
+        </div>
+      </div>
+      <div class="row column text-center">
+        <button class="button large" type="submit">Send message &rarr;</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="padding">
+    <div class="row medium-up-2 large-up-3">
+      {% for item in cms.contact.contacts %}
+        <div class="column">
+          <hr>
+          <h3 style="margin-bottom: 0.5em;">{{ item.name }}</h3>
+          <ul class="menu vertical">
+            <li><a href="tel:{{ item.email }}"><i class="icon-mail"></i> {{ item.email }}</a></li>
+            <li><a href="tel:{{ item.phone }}"><i class="icon-phone"></i> {{ item.phone }}</a></li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include 'templates/partials/cta.html' %}
+
+{% endblock %}

@@ -12,11 +12,11 @@
     </div>
     <div class="row">
       <div class="column large-4">
+        <h3 style="margin-top: 0;">Request a Quote</h3>
+        <hr>
         <ul class="menu vertical show-for-large">
-          <h3>Request a Quote</h3>
-          <hr>
           {% for link in cms.requestaquote %}
-            <li><a href="{{ url(link) }}">{{ link.name }}</a></li>
+            <li {% if getCurrentUrl() == url(link) %}class="active"{% endif %}><a href="{{ url(link) }}">{{ link.name }}</a></li>
           {% endfor %}
         </ul>
       </div>

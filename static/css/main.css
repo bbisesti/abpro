@@ -52,8 +52,13 @@ address {
 p.lead {
 	margin-bottom: 2em;
 }
+a {
+	color: #d00005;
+}
 a:hover,
-a:hover i,
+a:hover i {
+	color: #d00005;
+}
 .text-red {
 	color: #d00005;
 }
@@ -258,8 +263,10 @@ ul.menu.vertical > li > a {
 	padding-left: 0;
 	padding-right: 0;
 }
+ul.menu.vertical > li.active > a,
 ul.menu.vertical > li > a:hover {
 	color: #d00005;
+	background-color: transparent;
 }
 
 ul.menu.small {
@@ -325,6 +332,7 @@ input[type="email"],
 input[type="text"] {
 	border-radius: 0;
 	box-shadow: none;
+	background-color: transparent;
 }
 
 input[type=radio],

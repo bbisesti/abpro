@@ -16,11 +16,14 @@
   <section class="padding">
     <div class="row">
       <div class="column large-4">
+        <h3 style="margin-top: 0;">Services</h3>
+        <hr>
         <ul class="menu vertical show-for-large">
           {% for item in cms.services %}
-            <li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+            <li {% if getCurrentUrl() == url(item) %}class="active"{% endif %}><a href="{{ url(item) }}">{{ item.name }}</a></li>
           {% endfor %}
         </ul>
+        <a href="{{ url('requestaquote') }}" class="button link">Request a quote &rarr;</a>
       </div>
       <div class="column large-8">
         {{ item.content|safe }}
