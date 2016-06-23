@@ -1,9 +1,162 @@
-<footer class="bg-dark">
-	<div class="row column">
-		<ul class="menu">
-			<li {% if getCurrentUrl() == '/1/' or getCurrentUrl() == '/' %}class="active"{% endif %}><a href="/1/">concept 1</a></li>
-			<li {% if getCurrentUrl() == '/2/' %}class="active"{% endif %}><a href="/2/">concept 2</a></li>
-			<li {% if getCurrentUrl() == '/3/' %}class="active"{% endif %}><a href="/3/">concept 3</a></li>
-		</ul>
-	</div>
-</footer>
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - Homepage{% endblock %}
+
+{% block content %}
+
+<style>
+
+    header {
+      background-color: #fff;
+      padding-left: 0.5em;
+    }
+
+    #hero {
+      margin-top: 5em;
+    }
+
+    #hero h2,
+    #hero p {
+      color: #fff;
+    }
+    #hero .button {
+      color: #fff;
+      border-color: #fff;
+      /*margin-top: 0;*/
+      margin-bottom: 0;
+    }
+    .slide {
+      /*padding: 16em 4em 2em;*/
+      background-color: #333;
+    }
+
+    h6 {
+      margin-top: 0;
+    }
+
+
+    .slick-slide h2 {
+      transition: all 1s;
+      transform: translateX(25vw);
+      opacity: 0;
+    }
+    .slick-slide.slick-current h2 {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .slick-slide p {
+      /*margin-bottom: 2em;*/
+      transition: all 1s;
+      transform: translateX(50vw);
+      opacity: 0;
+    }
+    .slick-slide.slick-current p {
+      transform: translateX(0);
+      opacity: 1;
+      /*margin-bottom: 0.5em;*/
+    }
+    .slick-slide .button {
+      display: inline-block;
+      /*margin-top: 4em;*/
+      margin-top: 0;
+      transition: all 1s;
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+    .slick-slide.slick-current .button {
+      transform: translateX(0);
+      opacity: 1;
+      /*margin-top: 0;*/
+    }
+
+    .slide {
+      height: 70vh !important;
+    }
+
+    .overlay {
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      top:0; right:0;
+      left:0; bottom:0;
+      padding: 12em 4em;
+      /*height: 50vh;*/
+    }
+
+    #about {
+      background-image: url('/static/images/hexagons-gray.svg');
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: -50vw center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    #contact {
+    }
+
+    .overlay {
+      background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
+      background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
+      background: linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 );
+    }
+
+</style>
+
+  <section id="hero" class="bg-dark">
+    <div class="carousel bg-dark" data-equalizer>
+      {% for item in cms.homepage.grid %}
+        <div class="slide bg-dark cover" data-equalizer-watch data-bg="{{ item.image.url }}">
+          <div class="overlay">
+            <div class="row" data-equalizer>
+              <div class="column medium-8">
+                {# <div class="padding" style="padding: 4em;"> #}
+                  <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
+                  <p class="lead">{{ item.description }}</p>
+                  {# <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p> #}
+                  <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                    Learn about our technology &rarr;
+                  </a>
+                {# </div> #}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="news" class="padding" style="margin-top: 8em;">
+    <div class="row large-up-3" data-equalizer data-equalize-on="large">
+      {% for item in cms.news|slice(0,3) %}
+        <div class="column">
+          <div class="inner" data-equalizer-watch-off>
+            <h6>{{ item.publish_date|date('M j Y') }}</h6>
+            <h3 class="text-red">{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+          <a href="{{ item.website }}" rel="external" class="button link">
+            Read more &rarr;
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="about" class="padding bg-gray">
+    <div class="row">
+      <div class="column large-6">
+      </div>
+      <div class="column large-6">
+        <h2>About Us</h2>
+        <p>Abpro is a Massachusetts based biotechnology company. We are pioneers of industrial biochemistry and our mission is to bring innovation to the life sciences industry and ultimately improve living health. Through technology and automation, our DiversImmune™ discovery platform has streamlined all aspects of the process to deliver antibodies at industry leading speeds against previously difficult targets. Our products and discovery services are used by leading academic labs and companies around the world for research purposes, such as diagnostics and therapeutics.</p>
+        <p>
+          <a href="{{ url('about') }}" class="button large hollow">
+            Learn more about abpro &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
