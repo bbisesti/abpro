@@ -1,0 +1,76 @@
+{% extends "templates/partials/base.html" %}
+
+{% block content %}
+    <div class="section padding">
+    	<div class="row">
+    		<div class="column">
+    			<h2>Sitemap</h2>
+    			{# <hr> #}
+    			<div class="row small-up-1 medium-up-3 large-up-3">
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('services') }}">Services</a></h3>
+						<ul class="menu vertical">
+							{% for item in cms.services %}
+								<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('servicescategories') }}">Capabilities</a></h3>
+						<ul class="menu vertical">
+							{% for item in cms.servicescategories %}
+								<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('sectors') }}">Sectors</a></h3>
+						<ul class="menu vertical">
+							{% for item in cms.sectors %}
+								<li><a href="{{ url('sectors') }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('leadership') }}">Leadership</a></h3>
+						<ul class="menu vertical">
+							{% for item in cms.leadershipcategories %}
+								<li><a href="{{ url('leadership') }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('careers') }}">Careers</a></h3>
+						<ul class="menu vertical">
+							{% for item in cms.careers %}
+								<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3>Legal</h3>
+						<ul class="menu vertical">
+							{% for item in cms.legal %}
+								<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('technology') }}">Technology</a></h3>
+    				</div>
+    				<div class="column">
+    					<hr>
+						<h3><a href="{{ url('field') }}">Field</a></h3>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+{% endblock content %}
