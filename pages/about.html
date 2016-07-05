@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  <section class="padding cover fixed" style="margin-top: 4em; background-position: center 40vh; background-repeat: no-repeat;" data-bg="/static/images/hexagons-gray.svg">
+  <section class="padding cover" style="margin-top: 4em; background-position: ; background-repeat: no-repeat;" data-bg="/static/images/antibodies-1.svg">
     <div class="row column text-center">
       <h2>Our Story</h2>
       <p class="lead">
@@ -51,9 +51,13 @@
 
   <section class="padding bg-gray">
     <div class="row column text-center">
-      <h2 style="margin-bottom: 1em;">Careers</h2>
+      <h2 style="margin-bottom: 1em;">Join our Team</h2>
+      <p class="lead">
+        We welcome you to learn more about joining us! We offer a fast-paced and dynamic team-based work environment.
+      </p>
+      <a href="#" class="button large hollow">Learn More &rarr;</a>
     </div>
-    <div class="row large-up-3">
+{#     <div class="row large-up-3">
       {% for item in cms.careers %}
         <div class="column">
           <hr>
@@ -62,7 +66,7 @@
           <a href="{{ url(item) }}" class="button link">Learn more &rarr;</a>
         </div>
       {% endfor %}
-    </div>
+    </div> #}
   </section>
 
   <section class="padding">

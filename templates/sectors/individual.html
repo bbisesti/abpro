@@ -12,6 +12,23 @@
 {# This sets our page <title>. It will append this sectors's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
+
+
+
+
+
+<section id="cta" class="bg-red padding">
+
+  <div class="row column text-center">
+    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo doloribus, fugiat reprehenderit laudantium sed alias.</h3>
+    <a href="{{ url('requestaquote') }}" class="button large hollow">Request a Quote &rarr;</a>
+  </div>
+
+</section>
+
+
+
+
   <p><a href="{{ url('sectors') }}">View a list of all sectors</a></p>
   <h1>{{ item.name }}</h1>
   <ul>
