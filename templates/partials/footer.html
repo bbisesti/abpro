@@ -1,6 +1,6 @@
 <section id="contact" class="bg-dark padding" style="padding-top: 0; padding-bottom: 0;" data-bg="{{ cms.homepage.map|imageCrop(1200,600) }}"  data-midnight="dark">
 	<div class="row expanded collapse" data-equalizer data-equalize-on="large">
-		<div class="column medium-6 large-8" data-equalizer-watch>
+		<div class="column medium-6 large-7" data-equalizer-watch>
 			<div class="table">
 				<div class="cell text-">
 					<div class="padding">
@@ -9,7 +9,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="column medium-6 large-4 padding" data-equalizer-watch>
+		<div class="column medium-6 large-5 padding" data-equalizer-watch>
 			<img src="/static/images/abpro-logo-white.svg" alt="" style="height: 4em; margin: 1em 0;">
 
 			<ul class="menu vertical">
@@ -40,6 +40,7 @@
 				{% for item in cms.legal %}
 					<li><a href="{{ url(item) }}">{{ item.name }}</a></li>
 				{% endfor %}
+				<li><a href="/sitemap/">Sitemap</a></li>
 				{% set now = Date() %}
 				<li>&copy; {{ now|date('Y') }} Abpro Labs  </li>
 			</ul>
