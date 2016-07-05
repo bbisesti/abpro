@@ -20,7 +20,8 @@
           <div class="table">
             <div class="cell">
               <h2>{{ sector.name }}</h2>
-              {{ sector.content|safe }}
+              {# {{ sector.content|safe }} #}
+              <p class="lead">{{ sector.description }}</p>
               <a href="{{ url(sector) }}" class="button large hollow">Learn More &rarr;</a>
             </div>
           </div>

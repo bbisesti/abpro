@@ -13,63 +13,30 @@
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
 
+  <section id="hero" class="cover fixed" data-bg="{{ item.image.url }}">
+    <div class="overlay">
+      <div class="inner padding">
+        <div class="row">
+          <div class="column large-6">
+            <h2>{{ item.name }}</h2>
+            <p class="lead">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="padding">
+    <div class="row column">
+      {{ item.content|safe }}
+    </div>
+  </section>
 
+  <section id="cta" class="bg-red padding">
+    <div class="row column text-center">
+      <h3 style="margin-bottom: 2em;">{{ item.call_to_action }}</h3>
+      {% include 'templates/partials/contact-form.html' %}
+    </div>
+  </section>
 
-
-<section id="cta" class="bg-red padding">
-
-  <div class="row column text-center">
-    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo doloribus, fugiat reprehenderit laudantium sed alias.</h3>
-    <a href="{{ url('requestaquote') }}" class="button large hollow">Request a Quote &rarr;</a>
-  </div>
-
-</section>
-
-
-
-
-  <p><a href="{{ url('sectors') }}">View a list of all sectors</a></p>
-  <h1>{{ item.name }}</h1>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ item.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Publish Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ item.publish_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Description: </strong>
-        {{ item.description }}
-      </li>
-      <li>
-        <strong>Image: </strong>
-        {# You can pull out a lot more information from the image property. Info here: #}
-        {# http://www.webhook.com/docs/widget-template-reference/#image #}
-        <img src="{{ item.image|imageSize(200, 200) }}" />
-      </li>
-      <li>
-        <strong>Illustration: </strong>
-        {# You can pull out a lot more information from the image property. Info here: #}
-        {# http://www.webhook.com/docs/widget-template-reference/#image #}
-        <img src="{{ item.illustration|imageSize(200, 200) }}" />
-      </li>
-      <li>
-        <strong>Content: </strong>
-        {{ item.content|safe }}
-      </li>
-  </ul>
 {% endblock %}
