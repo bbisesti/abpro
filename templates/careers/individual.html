@@ -22,7 +22,11 @@
       </div>
       <div class="column large-8">
         {{ item.description|safe }}
-        <a href="mailto:hr@abpro-labs.com" class="button large">Apply Now &rarr;</a>
+        <!-- <a href="mailto:hr@abpro-labs.com" class="button large">Apply Now &rarr;</a> -->
+
+        <hr>
+        <h3>Apply for this position:</h3>
+        {% include 'templates/partials/jobs-form.html' %}
       </div>
     </div>
   </section>
