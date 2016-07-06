@@ -52,8 +52,46 @@
 
 
       {{ item.content|safe }}
+
+
+
+
+
+
+
     </div>
   </section>
+
+
+ {% if item.name == 'Research' %}
+
+    {% for group in cms.servicescategories %}
+      <section class="padding {% if loop.index % 2 %}bg-gray{% endif %}">
+        <div class="row">
+          <div class="column large-9">
+            <h2>{{ group.name }}</h2>
+            {% if group.overview %}
+              <p class="lead">{{ group.overview }}</p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row medium-up-2 large-up-3">
+          {% for item in group.services_category %}
+            <div class="column">
+              <hr>
+              <h3>{{ item.name }}</h3>
+              <p>{{ item.content|safe|truncate(200) }}</p>
+              <a href="{{ url(item) }}" class="button link" style="margin-top: 0;">Learn More &rarr;</a>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+
+
+{% endif %}
+
+
 
   <section id="cta" class="bg-red padding">
     <div class="row column text-center">
