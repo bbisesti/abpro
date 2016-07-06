@@ -119,7 +119,14 @@
 
   {% include 'templates/partials/partners.html' %}
 
-  {% include 'templates/partials/cta.html' %}
+  {# {% include 'templates/partials/cta.html' %} #}
+
+  <section id="cta" class="bg-red padding">
+    <div class="row column text-center">
+      <h3 style="margin-bottom: 2em;">{{ item.call_to_action }}</h3>
+      {% include 'templates/partials/contact-form.html' %}
+    </div>
+  </section>
 
 {% endblock %}
 

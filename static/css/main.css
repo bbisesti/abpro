@@ -403,3 +403,34 @@ input[type=radio]:checked+label:before {
 	-webkit-filter: grayscale(0%);
 	filter: grayscale(0%);
 }
+
+
+
+
+.progress {
+	height: auto;
+	border-radius: 0;
+	margin-bottom: 0.125em;
+}
+.progress-meter {
+	border-radius: 0;
+	background-color: #d00005;
+	padding: 0.125em;
+}
+
+.progress-meter-text {
+	position: static;
+	left: auto;
+	top: auto;
+	transform: none;
+	color: #fff;
+	margin-bottom: 0;
+	margin-left: 0.5em;
+	font-weight: normal;
+	font-size: 1em;
+
+}
+.progress-meter-text strong {
+	display: inline-block;
+	width: 2em;
+}

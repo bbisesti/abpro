@@ -28,6 +28,29 @@
 
   <section class="padding">
     <div class="row column">
+      {% if item.name == 'Therapeutics' %}
+        <h3 style="margin-top: 0;">Pipeline</h3>
+        {# {% set timeline = cms.pipeline.grid|groupBy('name') %} #}
+        {% set timeline = cms.pipeline.grid %}
+
+        {# {% for category in timeline %} #}
+          {# {% set categoryloop = loop.index0 %} #}
+            {# <pre>categoryloop: {{ categoryloop }}</pre> #}
+            {# <pre>timeline[0]|size: {{ category|size }}</pre> #}
+          {# <h5 style="margin-top: 1em;">{{ loop.key }}</h5> #}
+          {% for item in timeline %}
+            <div class="progress" role="progressbar" aria-valuenow="{{ item.length }}" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-meter" style="width: {{ item.length }}%">
+                <p class="progress-meter-text"><strong>X{{ loop.index + timeline[categoryloop]|size }}</strong> {{ item.name }}</p>
+              </div>
+            </div>
+          {% endfor %}
+
+        {# {% endfor %} #}
+        <h3>&nbsp;</h3>
+      {% endif %}
+
+
       {{ item.content|safe }}
     </div>
   </section>
