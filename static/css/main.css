@@ -16,6 +16,11 @@ h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type=
   visibility: visible;
   opacity: 1;
 }
+
+svg text.st4 {
+	font-weight: bold !important;
+}
+
 h1 {
 	line-height: 1.1;
 }
