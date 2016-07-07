@@ -416,6 +416,7 @@ input[type=radio]:checked+label:before {
 	height: auto;
 	border-radius: 0;
 	margin-bottom: 0.125em;
+	background-color: #f5f5f5;
 }
 .progress-meter {
 	border-radius: 0;
@@ -457,3 +458,16 @@ input[type=radio]:checked+label:before {
 //   cursor: pointer;
 //   opacity: 0;
 //   filter: alpha(opacity=0); }
+
+
+
+#pipeline .label {
+	display: block;
+	text-align: center;
+	border-radius: 0;
+	margin: .1em;
+	margin-bottom: 1em;
+	background-color: #f5f5f5;
+	color: #999;
+	padding: 1em;
+}

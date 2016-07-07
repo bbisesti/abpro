@@ -26,10 +26,22 @@
     </div>
   </section>
 
-  <section class="padding">
+  <section class="padding" id="pipeline">
     <div class="row column">
       {% if item.name == 'Therapeutics' %}
         <h3 style="margin-top: 0;">Pipeline</h3>
+
+        {% set labels = cms.pipeline.labels %}
+        <div class="row collapse small-up-4">
+          {% for label in labels %}
+            <div class="column">
+              <div class="label">
+                {{ label.name }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
         {# {% set timeline = cms.pipeline.grid|groupBy('name') %} #}
         {% set timeline = cms.pipeline.grid %}
 
