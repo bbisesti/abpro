@@ -11,8 +11,13 @@
       padding-left: 0.5em;
     }
 
+    body {
+      /*padding-top: 5em;*/
+    }
+
     #hero {
-      margin-top: 5em;
+      /*margin-top: 0;*/
+      height: auto;
     }
 
     #hero h2,
@@ -70,16 +75,31 @@
     }
 
     .slide {
-      height: 70vh !important;
+      min-height: 60vh !important;
     }
 
     .overlay {
       background-color: rgba(0,0,0,0.5);
-      position: absolute;
-      top:0; right:0;
-      left:0; bottom:0;
-      padding: 12em 4em;
+      position: relative;
+      /*height: 100%;*/
+      /*padding: 4em;*/
       /*height: 50vh;*/
+    }
+    .overlay .cell {
+      padding: 4em 2em;
+      /*min-height: 60vh;*/
+    }
+    @media (min-width: 1024px) {
+      .overlay .cell {
+        padding: 4em 0;
+      }
+
+    }
+    .overlay > .row {
+      /*position: absolute;*/
+      /*top: 50%;*/
+      /*margin-top: calc(-50%);*/
+      /*padding: 4em;*/
     }
 
     #about {
@@ -108,16 +128,21 @@
       {% for item in cms.homepage.grid %}
         <div class="slide bg-dark cover" data-equalizer-watch data-bg="{{ item.image.url }}">
           <div class="overlay">
-            <div class="row" data-equalizer>
-              <div class="column medium-8">
-                {# <div class="padding" style="padding: 4em;"> #}
-                  <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
-                  <p class="lead">{{ item.description }}</p>
-                  {# <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p> #}
-                  <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
-                    Learn about our technology &rarr;
-                  </a>
-                {# </div> #}
+            <div class="row">
+              <div class="column medium-8" data-equalizer-watch>
+                <div class="table">
+                  <div class="cell">
+                    {# <div class="padding" style="padding: 4em;"> #}
+                      <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
+                      <p class="lead">{{ item.description }}</p>
+                      {# <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p> #}
+                      <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                        Learn about our technology&nbsp;&rarr;
+                      </a>
+                    {# </div> #}
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -126,7 +151,7 @@
     </div>
   </section>
 
-  <section id="news" class="padding" style="margin-top: 8em;">
+  <section id="news" class="padding">
     <div class="row large-up-3" data-equalizer data-equalize-on="large">
       {% for item in cms.news|slice(0,3) %}
         <div class="column">

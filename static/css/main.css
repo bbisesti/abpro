@@ -471,3 +471,58 @@ input[type=radio]:checked+label:before {
 	color: #999;
 	padding: 1em;
 }
+
+
+#platform {
+
+}
+#platform h1 {
+	margin-bottom: .125em;
+}
+#platform p.lead {
+	color: #333;
+}
+#platform h3 {
+	color: #999;
+	margin-bottom: 0.25em;
+}
+#platform h3 b {
+	display: block;
+}
+#platform p {
+	color: #999;
+}
+#platform img {
+	margin-top: 5em;
+	max-width: 10em;
+	max-height: 10em;
+}
+#platform .column {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+#platform svg circle {
+	  stroke: #999;
+}
+#platform svg,
+#platform svg path,
+#platform svg rect,
+#platform svg circle,
+#platform svg text {
+	transition: all 1s;
+}
+#platform .column:hover svg {
+	cursor: pointer;
+}
+#platform .column:hover svg circle {
+	stroke: #d00005;
+	fill: #d00005;
+}
+#platform .column:hover svg rect,
+#platform .column:hover svg path:not(.circle) {
+ 	fill: white;
+}
+#platform .column:hover svg text {
+ 	fill: #d00005;
+}
