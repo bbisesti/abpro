@@ -13,7 +13,6 @@
     </div>
     <div class="row">
       <div class="column large-4">
-        {# <a href="{{ url('careers') }}" class="button link">&larr; All carrers</a> #}
         <ul class="menu vertical" style="margin-top: 2em;">
           {% for item in cms.careers %}
             <li><a href="{{ url(item) }}">{{ item.name }}</a></li>
@@ -22,8 +21,6 @@
       </div>
       <div class="column large-8">
         {{ item.description|safe }}
-        <!-- <a href="mailto:hr@abpro-labs.com" class="button large">Apply Now &rarr;</a> -->
-
         <hr>
         <h3>Apply for this position:</h3>
         {% include 'templates/partials/jobs-form.html' %}

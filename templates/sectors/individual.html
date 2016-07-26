@@ -1,16 +1,7 @@
-{# ------------------------------------------------------- #}
-{# INDIVIDUAL VIEW FOR EACH sectors #}
-{# This page can use any data from http:localhost:2000/cms/#/form/sectors/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
-{# This sets our page <title>. It will append this sectors's name to the site title defined in base.html #}
+
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
+
 {% block content %}
 
   <section id="hero" class="cover fixed" data-bg="{{ item.image.url }}">
@@ -42,34 +33,18 @@
           {% endfor %}
         </div>
 
-        {# {% set timeline = cms.pipeline.grid|groupBy('name') %} #}
-        {% set timeline = cms.pipeline.grid %}
-
-        {# {% for category in timeline %} #}
-          {# {% set categoryloop = loop.index0 %} #}
-            {# <pre>categoryloop: {{ categoryloop }}</pre> #}
-            {# <pre>timeline[0]|size: {{ category|size }}</pre> #}
-          {# <h5 style="margin-top: 1em;">{{ loop.key }}</h5> #}
-          {% for item in cms.pipeline.grid|slice(1,99) %}
-            <div class="progress" role="progressbar" aria-valuenow="{{ item.length }}" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-meter" style="width: {{ item.length }}%">
-                <p class="progress-meter-text"><strong>X{{ loop.index + timeline[categoryloop]|size }}</strong> {{ item.name }}</p>
-              </div>
+        {% for item in cms.pipeline.grid|slice(1,99) %}
+          <div class="progress" role="progressbar" aria-valuenow="{{ item.length }}" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-meter" style="width: {{ item.length }}%">
+              <p class="progress-meter-text"><strong>X{{ loop.index + timeline[categoryloop]|size }}</strong> {{ item.name }}</p>
             </div>
-          {% endfor %}
+          </div>
+        {% endfor %}
 
-        {# {% endfor %} #}
         <h3>&nbsp;</h3>
       {% endif %}
 
-
       {{ item.content|safe }}
-
-
-
-
-
-
 
     </div>
   </section>
@@ -100,10 +75,7 @@
       </section>
     {% endfor %}
 
-
-{% endif %}
-
-
+  {% endif %}
 
   <section id="cta" class="bg-red padding">
     <div class="row column text-center">

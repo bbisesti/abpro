@@ -1,20 +1,5 @@
-{# ------------------------------------------------------- #}
-
-{# LIST VIEW OF ALL events #}
-
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-
-{# ------------------------------------------------------- #}
-
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
 {% extends "templates/partials/base.html" %}
 
-{# This sets our page <title>. It will append events to the site title defined in base.html #}
 {% block title %}{% parent %} - events{% endblock %}
 
 {% block content %}
@@ -30,7 +15,6 @@
           <h6>{{ item.start_date|date('M j') }}{% if item.end_date %} &ndash; {{ item.end_date|date('j') }}{% endif %}, {{ item.end_date|date('Y') }}</h6>
           <h3>{{ item.name }}</h3>
           <p>{{ item.location }}</p>
-          {# <a href="{{ item.website }}" rel="external" class="button link">Read More &rarr;</a> #}
         </div>
       {% endfor %}
     </div>
@@ -42,6 +26,5 @@
       {% include 'templates/partials/contact-form.html' %}
     </div>
   </section>
-
 
 {% endblock %}

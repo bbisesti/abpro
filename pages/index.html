@@ -5,21 +5,13 @@
 {% block content %}
 
 <style>
-
     header {
       background-color: #fff;
       padding-left: 0.5em;
     }
-
-    body {
-      /*padding-top: 5em;*/
-    }
-
     #hero {
-      /*margin-top: 0;*/
       height: auto;
     }
-
     #hero h2,
     #hero p {
       color: #fff;
@@ -27,19 +19,14 @@
     #hero .button {
       color: #fff;
       border-color: #fff;
-      /*margin-top: 0;*/
       margin-bottom: 0;
     }
     .slide {
-      /*padding: 16em 4em 2em;*/
       background-color: #333;
     }
-
     h6 {
       margin-top: 0;
     }
-
-
     .slick-slide h2 {
       transition: all 1s;
       transform: translateX(25vw);
@@ -50,7 +37,6 @@
       opacity: 1;
     }
     .slick-slide p {
-      /*margin-bottom: 2em;*/
       transition: all 1s;
       transform: translateX(50vw);
       opacity: 0;
@@ -58,11 +44,9 @@
     .slick-slide.slick-current p {
       transform: translateX(0);
       opacity: 1;
-      /*margin-bottom: 0.5em;*/
     }
     .slick-slide .button {
       display: inline-block;
-      /*margin-top: 4em;*/
       margin-top: 0;
       transition: all 1s;
       transform: translateX(100vw);
@@ -71,37 +55,22 @@
     .slick-slide.slick-current .button {
       transform: translateX(0);
       opacity: 1;
-      /*margin-top: 0;*/
     }
-
     .slide {
       min-height: 60vh !important;
     }
-
     .overlay {
       background-color: rgba(0,0,0,0.5);
       position: relative;
-      /*height: 100%;*/
-      /*padding: 4em;*/
-      /*height: 50vh;*/
     }
     .overlay .cell {
       padding: 4em 2em;
-      /*min-height: 60vh;*/
     }
     @media (min-width: 1024px) {
       .overlay .cell {
         padding: 4em 0;
       }
-
     }
-    .overlay > .row {
-      /*position: absolute;*/
-      /*top: 50%;*/
-      /*margin-top: calc(-50%);*/
-      /*padding: 4em;*/
-    }
-
     #about {
       background-image: url('/static/images/hexagons-gray.svg');
       -webkit-background-size: cover;
@@ -110,17 +79,12 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
-
-    #contact {
-    }
-
     .overlay {
       background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
       background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
       background: linear-gradient(45deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.3) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 );
     }
-
 </style>
 
   <section id="hero" class="bg-dark">
@@ -132,15 +96,11 @@
               <div class="column medium-8" data-equalizer-watch>
                 <div class="table">
                   <div class="cell">
-                    {# <div class="padding" style="padding: 4em;"> #}
-                      <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
-                      <p class="lead">{{ item.description }}</p>
-                      {# <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit accusamus ratione provident amet ullam quidem ex nam illo quo adipisci?</p> #}
-                      <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
-                        Learn about our technology&nbsp;&rarr;
-                      </a>
-                    {# </div> #}
-
+                    <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
+                    <p class="lead">{{ item.description }}</p>
+                    <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Learn about our technology&nbsp;&rarr;
+                    </a>
                   </div>
                 </div>
               </div>
