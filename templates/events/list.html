@@ -19,7 +19,7 @@
 
 {% block content %}
 
-  <section class="padding bg-gray" id="events">
+  <section class="padding" id="events">
     <div class="row column text-center">
       <h2 style="margin-bottom: 1em;">Events</h2>
     </div>
@@ -35,5 +35,13 @@
       {% endfor %}
     </div>
   </section>
+
+  <section class="padding bg-gray">
+    <div class="row column text-center">
+      <h3>Learn more about Abpro at upcoming events near you</h3>
+      {% include 'templates/partials/contact-form.html' %}
+    </div>
+  </section>
+
 
 {% endblock %}
