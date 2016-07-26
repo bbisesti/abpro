@@ -97,7 +97,7 @@
       {% for item in cms.events|sort("start_date")|slice(0,3) %}
         <div class="column">
           <hr>
-          <h6>{{ item.start_date|date('M j') }} {% if item.end_date %}&ndash; {{ item.end_date|date('j') }}{% endif %} </h6>
+          <h6>{{ item.start_date|date('M j') }}{% if item.end_date %} &ndash; {{ item.end_date|date('j') }}{% endif %}, {{ item.end_date|date('Y') }}</h6>
           <h3>{{ item.name }}</h3>
           <p>{{ item.location }}</p>
           {# <a href="{{ item.website }}" rel="external" class="button link">Read More &rarr;</a> #}
