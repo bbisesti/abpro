@@ -50,7 +50,7 @@
             {# <pre>categoryloop: {{ categoryloop }}</pre> #}
             {# <pre>timeline[0]|size: {{ category|size }}</pre> #}
           {# <h5 style="margin-top: 1em;">{{ loop.key }}</h5> #}
-          {% for item in timeline %}
+          {% for item in cms.pipeline.grid|slice(1,99) %}
             <div class="progress" role="progressbar" aria-valuenow="{{ item.length }}" aria-valuemin="0" aria-valuemax="100">
               <div class="progress-meter" style="width: {{ item.length }}%">
                 <p class="progress-meter-text"><strong>X{{ loop.index + timeline[categoryloop]|size }}</strong> {{ item.name }}</p>

@@ -151,6 +151,16 @@
     </div>
   </section>
 
+  <section id="vision" class="padding bg-gray">
+    <div class="row">
+      <div class="column medium-10 medium-centered large-10 text-center">
+        <p class="lead" style="margin-bottom: 0;">
+          Ushering in a new era empowered by biology to create breakthrough products to treat disease in an unprecedented manner by combining mankind’s understanding of genomics, immunology and advanced engineering.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="news" class="padding">
     <div class="row large-up-3" data-equalizer data-equalize-on="large">
       {% for item in cms.news|slice(0,3) %}
@@ -160,7 +170,7 @@
             <h3 class="text-red">{{ item.name }}</h3>
             <p>{{ item.description }}</p>
           </div>
-          <a href="{{ item.website }}" rel="external" class="button link">
+          <a href="{{ item.pdf.url }}" rel="external" class="button link">
             Read more &rarr;
           </a>
         </div>

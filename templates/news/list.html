@@ -21,7 +21,7 @@
     </div>
   </section>
 
-  <section class="padding">
+{#   <section class="padding">
     <div class="row column">
       <h2>Abpro in the News</h2>
     </div>
@@ -36,7 +36,7 @@
         </div>
       {% endfor %}
     </div>
-  </section>
+  </section> #}
 
   <section class="padding bg-gray">
     <div class="row column">
@@ -49,7 +49,7 @@
           <h6>{{ item.publish_date|date('M j Y') }}</h6>
           <h3>{{ item.name }}</h3>
           <p>{{ item.description }}</p>
-          <a href="{{ item.website }}" rel="external" class="button link">Read More &rarr;</a>
+          <a href="{{ item.pdf.url }}" rel="external" class="button link">Read More &rarr;</a>
         </div>
       {% endfor %}
     </div>

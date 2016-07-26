@@ -87,14 +87,14 @@
     <div class="row column text-center">
       <h2 style="margin-bottom: 2em;">Key Advantages</h2>
     </div>
-    <div class="row medium-up-2 large-up-4">
+    <div class="row medium-up-2 large-up-2">
       {% for item in cms.technology.advantages|slice(0,4) %}
-        <div class="column text-center">
+        <div class="column text-center" style="margin-bottom: 2em;">
           <div class="circle" style="display: block; height: 100px; width: 100px; background-color: #d00005; margin: 0 auto; position: relative;">
             <img src="{{ item.image.url }}" alt="" class="svg" style="position: absolute; top: 50%; left: 50%; transform: translate(calc(-50%), calc(-50%)); height: 50px; width: 50px;">
           </div>
           <h4 style="margin-top: 1.5em; line-height: 1.15;">{{ item.name }}</h4>
-          <p>{{ item.description }}</p>
+          <p>{{ item.description|safe }}</p>
         </div>
       {% endfor %}
     </div>
