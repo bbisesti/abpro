@@ -9,8 +9,11 @@ h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type=
   opacity: 0;
   transition: all 0.3s;
 }
+.no-js legend, .no-js label, .no-js input[type="text"], .no-js input[type="email"], .no-js input[type="phone"], .no-js input[type="number"], .no-js textarea,
 .wf-inactive legend, .wf-inactive label, .wf-inactive input[type="text"], .wf-inactive input[type="email"], .wf-inactive input[type="phone"], .wf-inactive input[type="number"], .wf-inactive textarea,
 .wf-active legend, .wf-active label, .wf-active input[type="text"], .wf-active input[type="email"], .wf-active input[type="phone"], .wf-active input[type="number"], .wf-active textarea,
+
+.no-js h1, .no-js h2, .no-js h3, .no-js h4, .no-js h5, .no-js h6, .no-js p, .no-js ul, .no-js li, .no-js .button, .no-js svg text,
 .wf-inactive h1, .wf-inactive h2, .wf-inactive h3, .wf-inactive h4, .wf-inactive h5, .wf-inactive h6, .wf-inactive p, .wf-inactive ul, .wf-inactive li, .wf-inactive .button, .wf-inactive svg text,
 .wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4, .wf-active h5, .wf-active h6, .wf-active p, .wf-active ul, .wf-active li, .wf-active .button, .wf-active svg text {
   visibility: visible;
