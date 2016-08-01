@@ -29,6 +29,9 @@
   <title>technology-1</title>
   <text class="cls-1" transform="translate(518.33 388.47)">DiversImmune<tspan x="39.84" y="38.56">Platfor</tspan><tspan x="138.67" y="38.56">m</tspan><tspan x="167.09" y="38.56">™</tspan></text>
   <g class="item">
+    <text class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui atque eius quos, sapiente sed aspernatur perspiciatis minus veritatis, recusandae voluptatem vel eligendi nemo cum. Repellendus deserunt atque dolore reiciendis sequi.
+    </text>
     <circle cx="531" cy="115" r="85" stroke="#999999" stroke-width="1" fill="transparent"></circle>
     <!-- <path class="cls-2 circle" d="M531.59,30.5a84,84,0,1,1-59.36,24.59A83.69,83.69,0,0,1,531.59,30.5m0-1a85,85,0,1,0,60.07,24.88A84.4,84.4,0,0,0,531.59,29.5h0Z"/> -->
     <text class="cls-3" transform="translate(301.83 108.9)">Bioinformatics<tspan class="cls-4"><tspan x="47.1" y="22">BioMax™</tspan></tspan></text>

@@ -512,17 +512,35 @@ input[type=radio]:checked+label:before {
 #platform svg text {
 	transition: all 1s;
 }
-#platform .column:hover svg {
-	cursor: pointer;
+@media (min-width: 760px) {
+	#platform .item:hover svg {
+		cursor: pointer;
+	}
+	#platform .item:hover svg circle {
+		stroke: #d00005;
+		fill: #d00005;
+	}
+	#platform .item:hover svg rect,
+	#platform .item:hover svg path:not(.circle) {
+	 	fill: white;
+	}
+	#platform .item:hover svg text {
+	 	fill: #d00005;
+	}
 }
-#platform .column:hover svg circle {
-	stroke: #d00005;
-	fill: #d00005;
-}
-#platform .column:hover svg rect,
-#platform .column:hover svg path:not(.circle) {
- 	fill: white;
-}
-#platform .column:hover svg text {
- 	fill: #d00005;
+@media (max-width: 760px) {
+	#platform .column:hover svg {
+		cursor: pointer;
+	}
+	#platform .column:hover svg circle {
+		stroke: #d00005;
+		fill: #d00005;
+	}
+	#platform .column:hover svg rect,
+	#platform .column:hover svg path:not(.circle) {
+	 	fill: white;
+	}
+	#platform .column:hover svg text {
+	 	fill: #d00005;
+	}
 }
