@@ -1,7 +1,3 @@
-// body {
- // background-color: pink;
-}
-
 
 h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type="text"], input[type="email"], input[type="phone"], input[type="number"], textarea {
   font-family: "proxima-nova", "Helvetica Neue", Geneva, sans-serif !important;
@@ -9,11 +5,10 @@ h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type=
   opacity: 0;
   transition: all 0.3s;
 }
-.no-js legend, .no-js label, .no-js input[type="text"], .no-js input[type="email"], .no-js input[type="phone"], .no-js input[type="number"], .no-js textarea,
+/*.no-js legend, .no-js label, .no-js input[type="text"], .no-js input[type="email"], .no-js input[type="phone"], .no-js input[type="number"], .no-js textarea,*/
 .wf-inactive legend, .wf-inactive label, .wf-inactive input[type="text"], .wf-inactive input[type="email"], .wf-inactive input[type="phone"], .wf-inactive input[type="number"], .wf-inactive textarea,
 .wf-active legend, .wf-active label, .wf-active input[type="text"], .wf-active input[type="email"], .wf-active input[type="phone"], .wf-active input[type="number"], .wf-active textarea,
-
-.no-js h1, .no-js h2, .no-js h3, .no-js h4, .no-js h5, .no-js h6, .no-js p, .no-js ul, .no-js li, .no-js .button, .no-js svg text,
+/*.no-js h1, .no-js h2, .no-js h3, .no-js h4, .no-js h5, .no-js h6, .no-js p, .no-js ul, .no-js li, .no-js .button, .no-js svg text,*/
 .wf-inactive h1, .wf-inactive h2, .wf-inactive h3, .wf-inactive h4, .wf-inactive h5, .wf-inactive h6, .wf-inactive p, .wf-inactive ul, .wf-inactive li, .wf-inactive .button, .wf-inactive svg text,
 .wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4, .wf-active h5, .wf-active h6, .wf-active p, .wf-active ul, .wf-active li, .wf-active .button, .wf-active svg text {
   visibility: visible;
@@ -77,10 +72,19 @@ a:hover i {
 	margin-top: 1em;
 	background: #d00005;
 }
+.button:hover {
+	border-color: #333;
+	background-color: #333;
+}
 .button.hollow {
 	background: transparent;
 	border-color: black;
 	color: black;
+}
+.button.hollow:hover {
+	background: transparent;
+	border-color: #d00005;
+	color: #d00005;
 }
 .button.link {
 	color: black;
@@ -191,6 +195,12 @@ footer .menu li.active a {
 	border-color: #fff;
 	color: #fff;
 }
+.bg-red .button.hollow:hover,
+.bg-dark .button.hollow:hover {
+	border-color: #d00005;
+	color: #d00005;
+}
+
 .bg-gray {
 	background-color: #f5f5f5;
 }
@@ -262,6 +272,7 @@ hr {
   color: white;
   background: transparent;
 }
+header ul.menu li a:hover,
 header ul.menu li.active a {
 	background-color: transparent;
 	color: #d00005;
@@ -287,6 +298,9 @@ ul.menu.small li a {
 	color: #999;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+}
+ul.menu.small li a:hover {
+	color: #fff;
 }
 #contact {
 	position: relative;
@@ -446,21 +460,21 @@ input[type=radio]:checked+label:before {
 
 
 
-// .file-upload {
-//   position: relative;
-//   overflow: hidden;
-//   margin: 0 0 1em; }
+/*.file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 1em; }
 
-// .file-upload input.file-input {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   margin: 0;
-//   padding: 0;
-//   font-size: 20px;
-//   cursor: pointer;
-//   opacity: 0;
-//   filter: alpha(opacity=0); }
+.file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); }*/
 
 
 
