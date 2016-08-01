@@ -2,6 +2,14 @@
 
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 
+{% block head_extra %}
+  <style type="text/css">
+    form.loading {
+      opacity: 0.5;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
   <section class="padding">
     <div class="row">
@@ -21,8 +29,54 @@
         </ul>
       </div>
       <div class="column large-8">
+        <div class="form-success hide text-center padding bg-gray">
+          <h4>Thanks for your request!</h4>
+          <p>
+            We'll get back to you within 2 business days.
+          </p>
+        </div>
+         <div class="form-error hide text-center padding bg-gray">
+          <h4>There was a problem with your request.</h4>
+          <p>
+            Please try again or email us at <a href="mailto:help@abpro-labs.com">help@abpro-labs.com</a>
+          </p>
+        </div>
         {{ item.form|safe }}
       </div>
     </div>
   </section>
+{% endblock %}
+
+{% block scripts_extra %}
+  <script>
+  $(document)
+    .on('formvalid.zf.abide', function(event){
+      event.preventDefault();
+
+      var form = $('form');
+      form.addClass('loading');
+
+      $.ajax({
+          url: "https://formspree.io/xlelrpzm",
+          method: "POST",
+          data: JSON.stringify(form.serializeArray()),
+          dataType: "json",
+
+          success: function(data, status){
+            form.slideUp();
+            $('body').animate({scrollTop: 0});
+            $('.form-success').removeClass('hide').slideUp(0).slideDown();
+          },
+
+          error: function(data, status, err) {
+            form.slideUp();
+            $('body').animate({scrollTop: 0});
+            $('.form-error').removeClass('hide').slideUp(0).slideDown();
+          }
+      });
+    })
+    .on("submit", function(event) {
+      event.preventDefault();
+    });
+  </script>
 {% endblock %}
