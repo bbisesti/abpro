@@ -2,6 +2,14 @@
 
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 
+{% block head_extra %}
+  <style type="text/css">
+    form.loading {
+      opacity: 0.5;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
 
   <section class="padding">
@@ -23,9 +31,58 @@
         {{ item.description|safe }}
         <hr>
         <h3>Apply for this position:</h3>
+        <div class="form-success hide text-center padding bg-gray">
+          <h4>Thanks for your application!</h4>
+          <p>
+            We'll get back to you if your application is accepted.
+          </p>
+        </div>
+         <div class="form-error hide text-center padding bg-gray">
+          <h4>There was a problem with your application.</h4>
+          <p>
+            Please try again or email us at <a href="mailto:careers@abpro-labs.com">careers@abpro-labs.com</a>
+          </p>
+        </div>
         {% include 'templates/partials/jobs-form.html' %}
       </div>
     </div>
   </section>
 
+{% endblock %}
+
+
+{% block scripts_extra %}
+  <script>
+  $(document)
+    .on('formvalid.zf.abide', function(event){
+      event.preventDefault();
+
+      var form = $('form');
+      var data = $('form').serialize();
+
+      form.addClass('loading');
+
+      $.ajax({
+          url: "https://formspree.io/xlelrpzm",
+          method: "POST",
+          data: data,
+          dataType: "json",
+
+          success: function(data, status){
+            form.slideUp();
+            $('body').animate({scrollTop: $('form').offset().top + 100 });
+            $('.form-success').removeClass('hide').slideUp(0).slideDown();
+          },
+
+          error: function(data, status, err) {
+            form.slideUp();
+            $('body').animate({scrollTop: $('form').offset().top + 100 });
+            $('.form-error').removeClass('hide').slideUp(0).slideDown();
+          }
+      });
+    })
+    .on("submit", function(event) {
+      event.preventDefault();
+    });
+  </script>
 {% endblock %}
