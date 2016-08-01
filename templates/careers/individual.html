@@ -70,13 +70,13 @@
 
           success: function(data, status){
             form.slideUp();
-            $('body').animate({scrollTop: $('form').offset().top + 100 });
+            $('body').animate({scrollTop: $('form').offset().top - 100 });
             $('.form-success').removeClass('hide').slideUp(0).slideDown();
           },
 
           error: function(data, status, err) {
             form.slideUp();
-            $('body').animate({scrollTop: $('form').offset().top + 100 });
+            $('body').animate({scrollTop: $('form').offset().top - 100 });
             $('.form-error').removeClass('hide').slideUp(0).slideDown();
           }
       });
