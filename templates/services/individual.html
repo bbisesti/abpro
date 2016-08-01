@@ -15,10 +15,10 @@
 
   <section class="padding">
     <div class="row">
-      <div class="column large-4">
+      <div class="column large-4 show-for-large">
         <h3 style="margin-top: 0;">Services</h3>
         <hr>
-        <ul class="menu vertical show-for-large">
+        <ul class="menu vertical">
           {% for item in cms.services %}
             <li {% if getCurrentUrl() == url(item) %}class="active"{% endif %}><a href="{{ url(item) }}">{{ item.name }}</a></li>
           {% endfor %}
@@ -27,6 +27,7 @@
       </div>
       <div class="column large-8">
         {{ item.content|safe }}
+        <a href="{{ url('requestaquote') }}" class="button hollow hide-for-large">Request a quote &rarr;</a>
       </div>
     </div>
   </section>

@@ -126,6 +126,7 @@
       {% for item in cms.news|slice(0,3) %}
         <div class="column">
           <div class="inner" data-equalizer-watch-off>
+            <hr>
             <h6>{{ item.publish_date|date('M j Y') }}</h6>
             <h3 class="text-red">{{ item.name }}</h3>
             <p>{{ item.description }}</p>

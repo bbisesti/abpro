@@ -23,11 +23,16 @@ h1 {
 	line-height: 1.1;
 }
 h2 {
-	font-size: 3em;
+	font-size: 2.5em;
 	font-weight: 100;
 	line-height: 1;
 	margin-bottom: 0.5em;
 	line-height: 1.1;
+}
+@media (min-width: 640px) {
+	h2 {
+		font-size: 3em;
+	}
 }
 @media (min-width: 640px) {
 	h2 {
@@ -53,13 +58,19 @@ address {
 }
 
 p.lead {
+	font-size: 1.125em;
 	margin-bottom: 2em;
+}
+@media (min-width: 640px) {
+	p.lead {
+		font-size: 1.25em;
+	}
 }
 a {
 	color: #d00005;
 }
-a:hover,
-a:hover i {
+a:hover, a:active, a:focus,
+a:hover i, a:active i, a:focus i {
 	color: #d00005;
 }
 .text-red {
@@ -72,7 +83,7 @@ a:hover i {
 	margin-top: 1em;
 	background: #d00005;
 }
-.button:hover {
+.button:hover, .button:focus, .button:active {
 	border-color: #333;
 	background-color: #333;
 }
@@ -81,7 +92,9 @@ a:hover i {
 	border-color: black;
 	color: black;
 }
-.button.hollow:hover {
+.button.hollow:hover,
+.button.hollow:focus,
+.button.hollow:active {
 	background: transparent;
 	border-color: #d00005;
 	color: #d00005;
@@ -92,7 +105,9 @@ a:hover i {
 	padding-right: 0;
 	background: transparent;
 }
-.button.link:hover {
+.button.link:hover,
+.button.link:focus,
+.button.link:active {
 	color: #d00005;
 }
 header {
@@ -110,8 +125,8 @@ header {
 }
 @media (min-width: 640px) and (max-width: 1024px) {
 	header .row {
-		padding-left: 5em;
-		padding-right: 5em;
+		padding-left: 2em;
+		padding-right: 2em;
 	}
 }
 .mobile-menu .logo,
@@ -138,12 +153,16 @@ a.menu-toggle {
 	background-size: auto 100%;
 	background-position: left center;
 	background-repeat: no-repeat;
+	padding-left: 2em;
+	padding-right: 2em;
 }
-footer {
-	position: fixed;
-	bottom: 0;
-	background-color: #000;
-}
+/*@media (min-width: 640px) {*/
+	footer {
+		position: fixed;
+		bottom: 0;
+		background-color: #000;
+	}
+/*}*/
 footer .menu li.active a {
 	background-color: transparent;
 	font-weight: bold;
@@ -187,6 +206,13 @@ footer .menu li.active a {
 .bg-red * {
 	color: #fff;
 }
+.bg-red textarea:focus,
+.bg-red input:hover,
+.bg-red input:focus {
+	background: transparent !important;
+	border-color: #fff !important;
+	outline: none;
+}
 .bg-dark * {
 	color: #eee;
 }
@@ -196,6 +222,14 @@ footer .menu li.active a {
 	color: #fff;
 }
 .bg-red .button.hollow:hover,
+.bg-red .button.hollow:focus,
+.bg-red .button.hollow:active {
+	border-color: #fff;
+	color: #d00005;
+	background-color: #fff;
+}
+.bg-dark .button.hollow:focus,
+.bg-dark .button.hollow:active,
 .bg-dark .button.hollow:hover {
 	border-color: #d00005;
 	color: #d00005;
@@ -240,6 +274,11 @@ hr {
 	height: 60vh;
 	margin-top: 5em;
 }
+@media (max-width: 640px) {
+	#hero.mobilefix {
+		height: 100vh;
+	}
+}
 #hero .overlay {
 	height: 100%;
 	position: relative;
@@ -277,7 +316,7 @@ header ul.menu li.active a {
 	background-color: transparent;
 	color: #d00005;
 }
-ul.menu.vertical > li > a {
+ul.menu.vertical:not(.small) > li > a {
 	color: #999;
 	padding-left: 0;
 	padding-right: 0;
@@ -290,8 +329,12 @@ ul.menu.vertical > li > a:hover {
 
 ul.menu.small {
 	margin-top: 2em;
-	margin-left: -1.5em;
 	font-size: 0.7em;
+}
+@media (min-width: 640px) {
+	ul.menu.small {
+		margin-left: -1.5em;
+	}
 }
 ul.menu.small li,
 ul.menu.small li a {
@@ -305,9 +348,16 @@ ul.menu.small li a:hover {
 #contact {
 	position: relative;
 }
-#contact .menu.small {
-	position: absolute;
-	bottom: 1em;
+@media (max-width: 640px) {
+	#contact {
+		background: #333 !important;
+	}
+}
+@media (min-width: 640px) {
+	#contact .menu.small {
+		position: absolute;
+		bottom: 1em;
+	}
 }
 
 .subnav {
@@ -493,6 +543,12 @@ input[type=radio]:checked+label:before {
 #platform {
 
 }
+@media(max-width: 1024px) {
+	#platform {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 #platform h1 {
 	margin-bottom: .125em;
 }
@@ -559,5 +615,24 @@ input[type=radio]:checked+label:before {
 	}
 	#platform .column:hover svg text {
 	 	fill: #d00005;
+	}
+}
+
+
+
+@media (max-width: 1024px) {
+	#news .column:not(:last-child) {
+		/*margin-bottom: 4em;*/
+	}
+}
+
+
+
+@media (max-width: 640px) {
+	.sectors-item {
+		text-align: center;
+	}
+	.sectors-item img {
+		margin-bottom: 2em;
 	}
 }
