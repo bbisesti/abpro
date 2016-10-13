@@ -21,6 +21,12 @@
       border-color: #fff;
       margin-bottom: 0;
     }
+    #hero .button:hover,
+    #hero .button:active,
+    #hero .button:focus {
+      color: #d00005;
+      border-color: #d00005;
+    }
     .slide {
       background-color: #333;
     }
@@ -87,7 +93,7 @@
     }
 </style>
 
-  <section id="hero" class="bg-dark">
+  <section id="hero" class="bg-dark fade-in">
     <div class="carousel bg-dark" data-equalizer>
       {% for item in cms.homepage.grid %}
         <div class="slide bg-dark cover" data-equalizer-watch data-bg="{{ item.image.url }}">
@@ -141,9 +147,7 @@
 
   <section id="about" class="padding bg-gray">
     <div class="row">
-      <div class="column large-6">
-      </div>
-      <div class="column large-6">
+      <div class="column large-8 large-centered text-center">
         <h2>About Us</h2>
         <p>Abpro is a Massachusetts based biotechnology company. We are pioneers of industrial biochemistry and our mission is to bring innovation to the life sciences industry and ultimately improve living health. Through technology and automation, our DiversImmune™ discovery platform has streamlined all aspects of the process to deliver antibodies at industry leading speeds against previously difficult targets. Our products and discovery services are used by leading academic labs and companies around the world for research purposes, such as diagnostics and therapeutics.</p>
         <p>

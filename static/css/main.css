@@ -1,5 +1,5 @@
 
-h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type="text"], input[type="email"], input[type="phone"], input[type="number"], textarea {
+h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text,  legend, label, input[type="text"], input[type="email"], input[type="phone"], input[type="number"], textarea {
   font-family: "proxima-nova", "Helvetica Neue", Geneva, sans-serif !important;
   visibility: hidden;
   opacity: 0;
@@ -13,6 +13,14 @@ h1, h2, h3, h4, h5, h6, p, ul, li, .button, svg text, legend, label, input[type=
 .wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4, .wf-active h5, .wf-active h6, .wf-active p, .wf-active ul, .wf-active li, .wf-active .button, .wf-active svg text {
   visibility: visible;
   opacity: 1;
+}
+
+#main {
+	background-color: #f5f5f5;
+}
+
+section {
+	background-color: #fff;
 }
 
 svg text.st4 {
@@ -104,11 +112,13 @@ a:hover i, a:active i, a:focus i {
 	padding-left: 0;
 	padding-right: 0;
 	background: transparent;
+	border: 0;
 }
 .button.link:hover,
 .button.link:focus,
 .button.link:active {
 	color: #d00005;
+	border: 0;
 }
 header {
 	position: fixed;
@@ -116,6 +126,7 @@ header {
 	left: 0;
 	right: 0;
 	z-index: 999;
+	background-color: #fff;
 }
 @media (max-width: 640px) {
 	header .row {
@@ -156,13 +167,11 @@ a.menu-toggle {
 	padding-left: 2em;
 	padding-right: 2em;
 }
-/*@media (min-width: 640px) {*/
-	footer {
-		position: fixed;
-		bottom: 0;
-		background-color: #000;
-	}
-/*}*/
+footer {
+	position: fixed;
+	bottom: 0;
+	background-color: #000;
+}
 footer .menu li.active a {
 	background-color: transparent;
 	font-weight: bold;
@@ -234,7 +243,6 @@ footer .menu li.active a {
 	border-color: #d00005;
 	color: #d00005;
 }
-
 .bg-gray {
 	background-color: #f5f5f5;
 }
@@ -259,15 +267,15 @@ hr {
 		-moz-column-count: 2;
 		column-count: 2;
 
-		-webkit-column-gap: 4em; /* Chrome, Safari, Opera */
-	    -moz-column-gap: 4em; /* Firefox */
+		-webkit-column-gap: 4em;
+	    -moz-column-gap: 4em;
 	    column-gap: 4em;
 	}
 }
 .text-columns-2 ul {
-    -webkit-column-break-inside: avoid; /* Chrome, Safari */
-    page-break-inside: avoid;           /* Theoretically FF 20+ */
-    break-inside: avoid-column;         /* IE 11 */
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
     display:table;
 }
 #hero {
@@ -359,7 +367,6 @@ ul.menu.small li a:hover {
 		bottom: 1em;
 	}
 }
-
 .subnav {
 	position: fixed;
 	top: 5em;
@@ -381,15 +388,9 @@ label, legend {
 	display: block;
 	color: #999;
 }
-
 select {
 	color: #999;
 }
-
-fieldset {
-	/*margin-bottom: 1em;*/
-}
-
 input[type="radio"]+label,
 input[type="checkbox"]+label {
 	margin-top: 0;
@@ -407,7 +408,6 @@ input[type="text"] {
 	box-shadow: none;
 	background-color: transparent;
 }
-
 input[type=radio],
 input[type=checkbox] {
 	opacity: 0;
@@ -420,16 +420,13 @@ input[type=checkbox]+label:before {
     margin-right: 0.5em;
     color: #999;
 }
-
 input[type=radio]+label:before {
     content: "\e907";
 }
-
 input[type=checkbox]:checked+label:before {
     content: "\e906";
     color: #d00005;
 }
-
 input[type=radio]:checked+label:before {
     content: "\e903";
     color: #d00005;
@@ -444,10 +441,12 @@ input[type=radio]:checked+label:before {
 	z-index: 999;
 	overflow:hidden;
 	padding: 0 1em;
+	opacity: 0;
 	transition: all 1s;
 }
 .menu-open .mobile-menu {
 	bottom: 0;
+	opacity: 1;
 }
 .mobile-menu .menu {
 	font-size: 2em;
@@ -475,10 +474,6 @@ input[type=radio]:checked+label:before {
 	-webkit-filter: grayscale(0%);
 	filter: grayscale(0%);
 }
-
-
-
-
 .progress {
 	height: auto;
 	border-radius: 0;
@@ -490,7 +485,6 @@ input[type=radio]:checked+label:before {
 	background-color: #d00005;
 	padding: 0.125em;
 }
-
 .progress-meter-text {
 	position: static;
 	left: auto;
@@ -507,27 +501,6 @@ input[type=radio]:checked+label:before {
 	display: inline-block;
 	width: 2em;
 }
-
-
-
-/*.file-upload {
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 1em; }
-
-.file-upload input.file-input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0); }*/
-
-
-
 #pipeline .label {
 	display: block;
 	text-align: center;
@@ -537,11 +510,6 @@ input[type=radio]:checked+label:before {
 	background-color: #f5f5f5;
 	color: #999;
 	padding: 1em;
-}
-
-
-#platform {
-
 }
 @media(max-width: 1024px) {
 	#platform {
@@ -574,7 +542,6 @@ input[type=radio]:checked+label:before {
 	padding-left: 2em;
 	padding-right: 2em;
 }
-
 #platform svg circle {
 	  stroke: #999;
 }
@@ -618,15 +585,10 @@ input[type=radio]:checked+label:before {
 	}
 }
 
-
-
 @media (max-width: 1024px) {
 	#news .column:not(:last-child) {
-		/*margin-bottom: 4em;*/
 	}
 }
-
-
 
 @media (max-width: 640px) {
 	.sectors-item {
@@ -635,4 +597,13 @@ input[type=radio]:checked+label:before {
 	.sectors-item img {
 		margin-bottom: 2em;
 	}
+}
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity:0;
+	animation:fadeIn ease-in 0.5s;
+	animation-fill-mode:forwards;
+	animation-duration:0.5s;
 }

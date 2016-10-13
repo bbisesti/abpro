@@ -3,7 +3,15 @@ var Site = {
 		Site.header();
 		Site.slider();
 		Site.smoothScroll();
-		Site.menu();
+		Site.transitions();
+		Site.technology();
+
+		$(window).lazyLoadXT({
+			onComplete: Site.lazyLoadComplete()
+		})
+	},
+	lazyLoadComplete: function(){
+		$('section').animate({ opacity: 1 }, 500);
 	},
 	menu: function() {
 		$(document).on('click', '.menu-toggle, .mobile-menu a', function(){
@@ -33,9 +41,81 @@ var Site = {
 		    }
 	  });
 	},
+	technology: function(){
+		if ( $('#advantages').length ) {
+
+			$('#advantages').find('p').first().addClass('lead');
+
+			$('#Layer_1 g.item').mouseenter(function(e){
+				if ( $(this).hasClass('active') ) {
+				  return;
+				}
+
+				if (!$(this).find('.description')) {
+				  return;
+				}
+
+				$(this).addClass('active');
+
+				var _this = $(this);
+				var text = $(this).find('.description').text();
+				var textElement = $('<div>').html('<p style="margin-bottom: 0;">'+text+'</p>').addClass('popover');
+
+				textElement.appendTo('body').css({
+				  zIndex: 999,
+				  backgroundColor: '#fff',
+				  border: '1px solid #ddd',
+				  position: 'absolute',
+				  top: e.pageY,
+				  left: function(){
+				    if ( e.pageX > ( $(window).width() / 2 ) ) {
+				      return e.pageX - 400;
+				    } else {
+				      return e.pageX;
+				    }
+				  },
+				  padding: '1em',
+				  color: '#999',
+				  width: '400px'
+				}).hide().fadeIn();
+			})
+
+			$('#Layer_1 g.item').mouseleave(function(){
+				$(this).removeClass('active');
+				$('.popover').fadeOut();
+			});
+		}
+	},
+	transitions: function(){
+
+		var $page = $('#main'),
+			options = {
+				blacklist: '.noajax',
+				prefetch: true,
+				cacheLength: 2,
+				onStart: {
+		          duration: 250,
+		          render: function ($container) {
+		          		$('section').fadeOut(250);
+			            $('body').removeClass('menu-open')
+		          }
+		        },
+				onReady: {
+					duration: 0,
+					render: function($container, $newContent) {
+						$container.html($newContent)
+						$('section').css({ opacity: 0 });
+					}
+				},
+				onAfter: function() {
+					Site.init()
+					$(document).foundation();
+				}
+			}
+		smoothState = $page.smoothState(options).data('smoothState')
+	},
 	header: function() {
       $(document).ready(function(){
-        // Change this to the correct selector.
         $('header').midnight();
       });
 	}
@@ -46,3 +126,7 @@ $(document).ready(function(){
 });
 
 $(document).foundation();
+
+$(document).on('click', '.menu-toggle, .mobile-menu a', function(){
+	$('body').toggleClass('menu-open');
+});

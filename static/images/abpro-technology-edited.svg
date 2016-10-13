@@ -6,10 +6,10 @@
 
 <style type="text/css">
 	.st0{fill:#999999;}
-	.st1{font-family:'ProximaNova-Regular';}
+	.st1{font-family:"proxima-nova";}
 	.st2{font-size:36.15px;}
 	.st3{font-size:20px;}
-	.st4{font-family:'ProximaNova-Bold';}
+	.st4{font-family:"proxima-nova"; font-weight: bold;}
 	.st5{enable-background:new    ;}
 </style>
 <title>abpro-technology-2</title>
@@ -265,7 +265,7 @@
 		L902.4,470.1z M902.5,470.1l9.2-34.5l-6.9-1.9l-9.2,34.5L902.5,470.1z M893.2,462l7.9-29.6l-6.9-1.9l-7.9,29.6L893.2,462z
 		 M901.6,460.2l0.7-3l-10.7-2.6l-0.7,3L901.6,460.2z"/>
 	<text class="description">
-		Synthetic biology platform that allows ultra-rapid generation of antigens/biomolecules necessary for superior antibodies.
+		Multiple proprietary systems allowing the generation of biomolecules/antibodies in a massively parallel format, leveraging proprietary in-vivo systems, b-cell sorting, NGS, others.
 	</text>
 </g>
 <g class="item">

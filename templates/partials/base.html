@@ -34,18 +34,20 @@
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
       <![endif]-->
 
-      {% block header %}
-        {% include "templates/partials/header.html" %}
-      {% endblock %}
+      <div id="main">
+        {% block header %}
+          {% include "templates/partials/header.html" %}
+        {% endblock %}
 
-      {% block subnav %}{% endblock subnav %}
+        {% block subnav %}{% endblock subnav %}
 
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
-      {% block footer %}
-        {% include "templates/partials/footer.html" %}
-        {% include "templates/partials/mobile-menu.html" %}
-      {% endblock %}
+        {% block footer %}
+          {% include "templates/partials/footer.html" %}
+          {% include "templates/partials/mobile-menu.html" %}
+        {% endblock %}
+      </div>
 
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -56,6 +58,7 @@
       <script src="/static/javascript/jquery.lazyloadxt.bg.js"></script>
       <script src="/static/javascript/slick.min.js"></script>
       <script src="/static/javascript/midnight.jquery.min.js"></script>
+      <script src="/static/javascript/jquery.smoothState.min.js"></script>
       <script src="/static/javascript/main.js"></script>
       <!-- endbuild -->
 

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  <section class="padding cover" style="margin-top: 4em; background-position: ; background-repeat: no-repeat;" data-bg="/static/images/antibodies-1.svg">
+  <section class="padding cover" style="margin-top: 4em; background-position: center 20px; background-repeat: no-repeat; background-position: fixed;" data-bg="/static/images/antibodies-1.svg">
     <div class="row column text-center">
       <h2>Our Story</h2>
       <p class="lead">
@@ -23,7 +23,6 @@
       {% for person in management.leadership_category %}
         <div class="column text-center">
           <hr>
-          {# <img src="{{ person.image|imageCrop(100) }}" class="circle" alt="{{ person.name }}"> #}
           <h4>{{ person.name }}</h4>
           <h6>{{ person.title }}</h6>
           <p style="line-height: 1.25;"><small>{{ person.credentials }}</small></p>
@@ -57,16 +56,6 @@
       </p>
       <a href="/careers/" class="button large hollow">Learn More &rarr;</a>
     </div>
-{#     <div class="row large-up-3">
-      {% for item in cms.careers %}
-        <div class="column">
-          <hr>
-          <h3>{{ item.name }}</h3>
-          <p>{{ item.description|striptags|truncate(100) }}</p>
-          <a href="{{ url(item) }}" class="button link">Learn more &rarr;</a>
-        </div>
-      {% endfor %}
-    </div> #}
   </section>
 
   <section class="padding">
@@ -74,7 +63,7 @@
       <h2 style="margin-bottom: 1em;">Media</h2>
     </div>
     <div class="row medium-up-1 large-up-3">
-      {% for item in cms.news|slice(0,3) %}
+      {% for item in cms.pressreleases|slice(0,3) %}
         <div class="column">
           <hr>
           <h6>{{ item.publish_date|date('M j Y') }}</h6>
@@ -100,7 +89,6 @@
           <h6>{{ item.start_date|date('M j') }}{% if item.end_date %} &ndash; {{ item.end_date|date('j') }}{% endif %}, {{ item.end_date|date('Y') }}</h6>
           <h3>{{ item.name }}</h3>
           <p>{{ item.location }}</p>
-          {# <a href="{{ item.website }}" rel="external" class="button link">Read More &rarr;</a> #}
         </div>
       {% endfor %}
     </div>
