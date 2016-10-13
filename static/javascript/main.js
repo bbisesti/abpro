@@ -91,6 +91,7 @@ var Site = {
 		var $page = $('#main'),
 			options = {
 				blacklist: '.noajax',
+				forms: '',
 				prefetch: true,
 				cacheLength: 2,
 				onStart: {
