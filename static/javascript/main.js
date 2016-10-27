@@ -133,34 +133,33 @@ $(document).on('click', '.menu-toggle, .mobile-menu a', function(){
 });
 
 
-$(document)
-    .on('formvalid.zf.abide', function(event){
-      event.preventDefault();
+$(document).on('formvalid.zf.abide', function(event){
+  event.preventDefault();
 
-      var form = $('form');
-      var data = $('form').serialize();
+  var form = $('form');
+  var data = $('form').serialize();
 
-      form.addClass('loading');
+  form.addClass('loading');
 
-      $.ajax({
-          url: "https://formspree.io/xlelrpzm",
-          method: "POST",
-          data: data,
-          dataType: "json",
+  $.ajax({
+      url: "https://formspree.io/xlelrpzm",
+      method: "POST",
+      data: data,
+      dataType: "json",
 
-          success: function(data, status){
-            form.slideUp();
-            $('body').animate({scrollTop: 0});
-            $('.form-success').removeClass('hide').slideUp(0).slideDown();
-          },
+      success: function(data, status){
+        form.slideUp();
+        $('body').animate({scrollTop: 0});
+        $('.form-success').removeClass('hide').slideUp(0).slideDown();
+      },
 
-          error: function(data, status, err) {
-            form.slideUp();
-            $('body').animate({scrollTop: 0});
-            $('.form-error').removeClass('hide').slideUp(0).slideDown();
-          }
-      });
-    })
-    .on("submit", function(event) {
-      event.preventDefault();
-    });
+      error: function(data, status, err) {
+        form.slideUp();
+        $('body').animate({scrollTop: 0});
+        $('.form-error').removeClass('hide').slideUp(0).slideDown();
+      }
+  });
+})
+.on("submit", function(event) {
+  event.preventDefault();
+});
