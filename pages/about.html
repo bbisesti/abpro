@@ -20,7 +20,7 @@
 
     <div class="row medium-up-2 large-up-3">
       {% set management = cms.leadershipcategories[0] %}
-      {% for person in management.leadership_category %}
+      {% for person in management.leadership_category|sort('order') %}
         <div class="column text-center">
           <hr>
           <h4>{{ person.name }}</h4>
