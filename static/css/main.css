@@ -552,6 +552,10 @@ input[type=radio]:checked+label:before {
 #platform svg text {
 	transition: all 1s;
 }
+#platform svg .description {
+	display: none;
+}
+
 @media (min-width: 760px) {
 	#platform .item:hover svg {
 		cursor: pointer;
