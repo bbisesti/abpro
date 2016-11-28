@@ -142,7 +142,7 @@ $(document).on('formvalid.zf.abide', function(event){
   form.addClass('loading');
 
   $.ajax({
-      url: "https://formspree.io/xlelrpzm",
+      url: "https://formspree.io/mpwadelx",
       method: "POST",
       data: data,
       dataType: "json",
