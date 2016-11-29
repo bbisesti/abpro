@@ -26,7 +26,7 @@
       <h2>Press Releases</h2>
     </div>
     <div class="row medium-up-1 large-up-3">
-      {% for item in cms.pressreleases|slice(1,999) %}
+      {% for item in cms.pressreleases|sort('publish_date',true) %}
         <div class="column">
           <hr>
           <h6>{{ item.publish_date|date('M j Y') }}</h6>
