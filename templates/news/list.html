@@ -26,7 +26,7 @@
       <h2>Press Releases</h2>
     </div>
     <div class="row medium-up-1 large-up-3">
-      {% for item in cms.pressreleases|sort('publish_date',true) %}
+      {% for item in cms.pressreleases|sort('publish_date',true)|slice(0,999) %}
         <div class="column">
           <hr>
           <h6>{{ item.publish_date|date('M j Y') }}</h6>
@@ -43,7 +43,7 @@
       <h2>Abpro in the News</h2>
     </div>
     <div class="row medium-up-2 large-up-3">
-      {% for item in cms.news|slice(0,3) %}
+      {% for item in cms.news|sort('publish_date',true)|slice(0,3) %}
         <div class="column">
           <hr>
           <h6>{{ item.publish_date|date('M j Y') }}</h6>

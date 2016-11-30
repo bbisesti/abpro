@@ -129,7 +129,7 @@
 
   <section id="news" class="padding">
     <div class="row large-up-3" data-equalizer data-equalize-on="large">
-      {% for item in cms.pressreleases|slice(0,3) %}
+      {% for item in cms.pressreleases|sort('publish_date',true)|slice(0,3) %}
         <div class="column">
           <div class="inner" data-equalizer-watch-off>
             <hr>
