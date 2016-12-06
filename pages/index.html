@@ -104,9 +104,31 @@
                   <div class="cell">
                     <h2 style="margin-top: 0;">{{ item.headline|safe }}</h2>
                     <p class="lead">{{ item.description }}</p>
+                    {% if item.headline == cms.homepage.grid[0].headline %}
                     <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
                       Learn about our technology&nbsp;&rarr;
                     </a>
+                    {% endif %}
+                    {% if item.headline == cms.homepage.grid[1].headline %}
+                    <a href="{{ url('technology') }}" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Learn about our technology&nbsp;&rarr;
+                    </a>
+                    {% endif %}
+                    {% if item.headline == cms.homepage.grid[2].headline %}
+                    <a href="http://abpro-labs.com/sectors/research" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Learn about our technology&nbsp;&rarr;
+                    </a>
+                    {% endif %}
+                    {% if item.headline == cms.homepage.grid[3].headline %}
+                    <a href="http://abpro-labs.com/sectors/therapeutics" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Learn about our technology&nbsp;&rarr;
+                    </a>
+                    {% endif %}
+                    {% if item.headline == cms.homepage.grid[4].headline %}
+                    <a href="http://abpro-labs.com/sectors/therapeutics" class="button hollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Learn about our technology&nbsp;&rarr;
+                    </a>
+                    {% endif %}
                   </div>
                 </div>
               </div>
