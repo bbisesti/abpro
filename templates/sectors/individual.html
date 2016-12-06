@@ -5,6 +5,23 @@
 
 {% block content %}
 
+<!--css styles-->
+<style type="text/css">
+
+  .button.bisestiHollow {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+  .button.bisestiHollow:hover,
+  .button.bisestiHollow:focus,
+  .button.bisestiHollow:active {
+    background: transparent;
+    border-color: #d00005;
+    color: #d00005;
+  }
+</style>
+
   <section id="hero" class="cover fixed" data-bg="{{ item.image.url }}">
     <div class="overlay">
       <div class="inner padding">
@@ -12,6 +29,9 @@
           <div class="column large-6">
             <h2>{{ item.name }}</h2>
             <p class="lead">{{ item.description }}</p>
+            <a id="SectorButton" href="{{ url('requestaquote') }}" class="button bisestiHollow large" style="margin-bottom: 0; margin-top: 1.5em;">
+                      Request a Quote&nbsp;&rarr;
+            </a>
           </div>
         </div>
       </div>
